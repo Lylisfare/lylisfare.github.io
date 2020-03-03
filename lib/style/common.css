@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+header{
+    height:40px;
+    box-shadow:0px 0px 10px aqua;
+    background-color:#fff;
+    color:#fff;
+    vertical-align: middle;
+}
