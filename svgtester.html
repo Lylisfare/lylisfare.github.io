@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>营销文案生成器</title>
+</head>
+<body>
+    <input id="char1" type="text" value="橘子" placeholder="服务提供商名称">
+    <input id="char2" type="text" value="橙子" placeholder="关键字">
+    <input id="char3" type="text" value="柠檬" placeholder="解释">
+    <button onclick="marketingNumber()">生成</button>
+    <script>
+
+        
+        
+        function marketingNumber(){
+            let char1 = document.getElementById("char1").value;
+            let char2 = document.getElementById("char2").value;
+            let char3 = document.getElementById("char3").value;
+
+            let res = `大家好，这里是${char1}看世界，今天小编带大家了解${char2}。 ${char2}到底是怎么一回事呢？让我们一起来看看吧。 说起${char2}，相信大家一定很熟悉，但${char2}是什么呢？就让小编带大家一起了解吧其实，${char2}就是${char3}，大家可能会惊讶，${char2}竟然就是${char3}！这就是${char2}了，不知道大家有什么想法呢？欢迎在屏幕下方留言哦`;
+
+            alert(res);
+        }
+
+        
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>
