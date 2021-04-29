@@ -8,10 +8,11 @@
 	<title>Document</title>
 </head>
 <style>
-	.coolArea{
+	.coolArea {
 		padding: 10px;
 	}
 </style>
+
 <body>
 	<h1>薪资转爽计算器</h1>
 	<div class="coolArea">
@@ -66,56 +67,123 @@
 
 
 		const selfIncome = document.getElementById("selfIncome");
+		const selfIncomeByDay = document.getElementById("selfIncomeByDay");
+		const selfIncomeByHour = document.getElementById("selfIncomeByHour");
+		const selfIncomeByMinute = document.getElementById("selfIncomeByMinute");
+		const selfIncomeBySec = document.getElementById("selfIncomeBySec");
+		const selfMoney = document.getElementById("selfMoney");
 		const resaultCoolIncomeScreen = document.getElementById("resaultCoolIncomeScreen");
-
+		const resaultCoolIncomeByDayScreen = document.getElementById("resaultCoolIncomeByDayScreen");
+		const resaultCoolIncomeByHourScreen = document.getElementById("resaultCoolIncomeByHourScreen");
+		const resaultCoolIncomeByMinuteScreen = document.getElementById("resaultCoolIncomeByMinuteScreen");
+		const resaultCoolIncomeBySecScreen = document.getElementById("resaultCoolIncomeBySecScreen");
+		const resaultCoolMoneyScreen = document.getElementById("resaultCoolMoneyScreen");
+		
 		function getCoolIncome() {
 			const count = selfIncome.value;
-			resaultCoolIncomeScreen.value = count / oneCoolMonth;
-		}
+			const countIncome = count / oneCoolMonth;
+			selfIncomeByDay.value = 0;
+			selfIncomeByHour.value = 0;
+			selfIncomeByMinute.value = 0;
+			selfIncomeBySec.value = 0;
+			selfMoney.value = 0;
+			resaultCoolIncomeScreen.value = countIncome;
 
-		const selfIncomeByDay = document.getElementById("selfIncomeByDay");
-		const resaultCoolIncomeByDayScreen = document.getElementById("resaultCoolIncomeByDayScreen");
+			resaultCoolIncomeByDayScreen.value = countIncome / 30;
+			resaultCoolIncomeByHourScreen.value = countIncome / 30 / 24;
+			resaultCoolIncomeByMinuteScreen.value = countIncome / 30 / 24 / 60;
+			resaultCoolIncomeBySecScreen.value = countIncome / 30 / 24 / 60 / 60;
+			resaultCoolMoneyScreen.value = count / oneCool;
+
+			
+		}
 
 		function getCoolIncomeByDay() {
 			const count = selfIncomeByDay.value;
-			resaultCoolIncomeByDayScreen.value = count / oneCoolDay;
-		}
+			const countIncome = count / oneCoolDay;
+			selfIncome.value = 0;
+			selfIncomeByHour.value = 0;
+			selfIncomeByMinute.value = 0;
+			selfIncomeBySec.value = 0;
+			selfMoney.value = 0;
+			resaultCoolIncomeByDayScreen.value = countIncome;
 
-		const selfIncomeByHour = document.getElementById("selfIncomeByHour");
-		const resaultCoolIncomeByHourScreen = document.getElementById("resaultCoolIncomeByHourScreen");
+			resaultCoolIncomeScreen.value = countIncome * 30;
+			resaultCoolIncomeByHourScreen.value = countIncome / 24;
+			resaultCoolIncomeByMinuteScreen.value = countIncome / 24 / 60;
+			resaultCoolIncomeBySecScreen.value = countIncome / 24 / 60 / 60;
+			resaultCoolMoneyScreen.value = count / oneCool;
+		}
 
 		function getCoolIncomeByHour() {
 			const count = selfIncomeByHour.value;
-			resaultCoolIncomeByHourScreen.value = count / oneCoolHour;
+			const countIncome = count / oneCoolHour;
+			selfIncome.value = 0;
+			selfIncomeByDay.value = 0;
+			selfIncomeByMinute.value = 0;
+			selfIncomeBySec.value = 0;
+			selfMoney.value = 0;
+			resaultCoolIncomeByHourScreen.value = countIncome;
+
+
+			resaultCoolIncomeScreen.value = countIncome * 24 * 30;
+			resaultCoolIncomeByDayScreen.value = countIncome * 24;
+			resaultCoolIncomeByMinuteScreen.value = countIncome / 60;
+			resaultCoolIncomeBySecScreen.value = countIncome / 60 / 60;
+			resaultCoolMoneyScreen.value = count / oneCool;
 		}
-		
-		const selfIncomeByMinute = document.getElementById("selfIncomeByMinute");
-		const resaultCoolIncomeByMinuteScreen = document.getElementById("resaultCoolIncomeByMinuteScreen");
 
 		function getCoolIncomeByMinute() {
 			const count = selfIncomeByMinute.value;
-			resaultCoolIncomeByMinuteScreen.value = count / oneCoolMinute;
-		}
+			const countIncome = count / oneCoolMinute;
+			selfIncome.value = 0;
+			selfIncomeByDay.value = 0;
+			selfIncomeByHour.value = 0;
+			selfIncomeBySec.value = 0;
+			selfMoney.value = 0;
+			resaultCoolIncomeByMinuteScreen.value = countIncome;
 
-		const selfIncomeBySec = document.getElementById("selfIncomeBySec");
-		const resaultCoolIncomeBySecScreen = document.getElementById("resaultCoolIncomeBySecScreen");
+			resaultCoolIncomeScreen.value = countIncome * 60 * 24 * 30;
+			resaultCoolIncomeByDayScreen.value = countIncome * 60 * 24;
+			resaultCoolIncomeByHourScreen.value = countIncome * 60;
+			resaultCoolIncomeBySecScreen.value = countIncome / 60;
+			resaultCoolMoneyScreen.value = count / oneCool;
+		}
 
 		function getCoolIncomeBySec() {
 			const count = selfIncomeBySec.value;
-			resaultCoolIncomeBySecScreen.value = count / oneCoolSec;
+			const countIncome = count / oneCoolSec;
+			selfIncome.value = 0;
+			selfIncomeByDay.value = 0;
+			selfIncomeByHour.value = 0;
+			selfIncomeByMinute.value = 0;
+			selfMoney.value = 0;
+			resaultCoolIncomeBySecScreen.value = countIncome;
+
+			resaultCoolIncomeScreen.value = countIncome * 60 * 60 * 24 * 30;
+			resaultCoolIncomeByMinuteScreen.value = countIncome * 60;
+			resaultCoolIncomeByDayScreen.value = countIncome * 60 * 60 * 24;
+			resaultCoolIncomeByHourScreen.value = countIncome * 60 * 60;
+			resaultCoolMoneyScreen.value = count / oneCool;
 		}
-
-
-
-		const selfMoney = document.getElementById("selfMoney");
-		const resaultCoolMoneyScreen = document.getElementById("resaultCoolMoneyScreen");
 
 		function getCoolMoney() {
 			const count = selfMoney.value;
-			resaultCoolMoneyScreen.value = count / oneCool
+			const countIncome = count / oneCool;
+			selfIncome.value = 0;
+			selfIncomeByDay.value = 0;
+			selfIncomeByHour.value = 0;
+			selfIncomeByMinute.value = 0;
+			selfIncomeBySec.value = 0;
+			resaultCoolMoneyScreen.value = countIncome;
+
+			resaultCoolIncomeScreen.value = countIncome / 12;
+			resaultCoolIncomeByDayScreen.value = countIncome / 12 / 30;
+			resaultCoolIncomeByHourScreen.value = countIncome / 12 / 30 / 24;
+			resaultCoolIncomeByMinuteScreen.value = countIncome / 12 / 30 / 24 / 60;
+			resaultCoolIncomeBySecScreen.value = countIncome / 12 / 30 / 24 / 60 / 60;
 		}
 	</script>
 </body>
 
 </html>
-
