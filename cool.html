@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<style>
+	.coolArea{
+		padding: 10px;
+	}
+</style>
+<body>
+	<h1>薪资转爽计算器</h1>
+	<div class="coolArea">
+		输入月薪：
+		<input type="text" id="selfIncome">
+		<button onclick="getCoolIncome()">确定</button>
+		结果：
+		<input type="text" id="resaultCoolIncomeScreen" readonly>爽/月
+	</div>
+	<div class="coolArea">
+		输入日薪：
+		<input type="text" id="selfIncomeByDay">
+		<button onclick="getCoolIncomeByDay()">确定</button>
+		结果：
+		<input type="text" id="resaultCoolIncomeByDayScreen" readonly>爽/日
+	</div>
+	<div class="coolArea">
+		输入时薪：
+		<input type="text" id="selfIncomeByHour">
+		<button onclick="getCoolIncomeByHour()">确定</button>
+		结果：
+		<input type="text" id="resaultCoolIncomeByHourScreen" readonly>爽/时
+	</div>
+	<div class="coolArea">
+		输入分薪：
+		<input type="text" id="selfIncomeByMinute">
+		<button onclick="getCoolIncomeByMinute()">确定</button>
+		结果：
+		<input type="text" id="resaultCoolIncomeByMinuteScreen" readonly>爽/分
+	</div>
+	<div class="coolArea">
+		输入秒薪：
+		<input type="text" id="selfIncomeBySec">
+		<button onclick="getCoolIncomeBySec()">确定</button>
+		结果：
+		<input type="text" id="resaultCoolIncomeBySecScreen" readonly>爽/秒
+	</div>
+	<div class="coolArea">
+		输入金额：
+		<input type="text" id="selfMoney">
+		<button onclick="getCoolMoney()">确定</button>
+		结果：
+		<input type="text" id="resaultCoolMoneyScreen" readonly>爽
+	</div>
+	<script>
+		const oneCool = 640000000;
+		const oneCoolDay = 2080000;
+		const oneCoolMonth = oneCoolDay * 30;
+		const oneCoolHour = oneCoolDay / 24;
+		const oneCoolMinute = oneCoolHour / 60;
+		const oneCoolSec = oneCoolMinute / 60;
+
+
+		const selfIncome = document.getElementById("selfIncome");
+		const resaultCoolIncomeScreen = document.getElementById("resaultCoolIncomeScreen");
+
+		function getCoolIncome() {
+			const count = selfIncome.value;
+			resaultCoolIncomeScreen.value = count / oneCoolMonth;
+		}
+
+		const selfIncomeByDay = document.getElementById("selfIncomeByDay");
+		const resaultCoolIncomeByDayScreen = document.getElementById("resaultCoolIncomeByDayScreen");
+
+		function getCoolIncomeByDay() {
+			const count = selfIncomeByDay.value;
+			resaultCoolIncomeByDayScreen.value = count / oneCoolDay;
+		}
+
+		const selfIncomeByHour = document.getElementById("selfIncomeByHour");
+		const resaultCoolIncomeByHourScreen = document.getElementById("resaultCoolIncomeByHourScreen");
+
+		function getCoolIncomeByHour() {
+			const count = selfIncomeByHour.value;
+			resaultCoolIncomeByHourScreen.value = count / oneCoolHour;
+		}
+		
+		const selfIncomeByMinute = document.getElementById("selfIncomeByMinute");
+		const resaultCoolIncomeByMinuteScreen = document.getElementById("resaultCoolIncomeByMinuteScreen");
+
+		function getCoolIncomeByMinute() {
+			const count = selfIncomeByMinute.value;
+			resaultCoolIncomeByMinuteScreen.value = count / oneCoolMinute;
+		}
+
+		const selfIncomeBySec = document.getElementById("selfIncomeBySec");
+		const resaultCoolIncomeBySecScreen = document.getElementById("resaultCoolIncomeBySecScreen");
+
+		function getCoolIncomeBySec() {
+			const count = selfIncomeBySec.value;
+			resaultCoolIncomeBySecScreen.value = count / oneCoolSec;
+		}
+
+
+
+		const selfMoney = document.getElementById("selfMoney");
+		const resaultCoolMoneyScreen = document.getElementById("resaultCoolMoneyScreen");
+
+		function getCoolMoney() {
+			const count = selfMoney.value;
+			resaultCoolMoneyScreen.value = count / oneCool
+		}
+	</script>
+</body>
+
+</html>
+
