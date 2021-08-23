@@ -17,7 +17,7 @@
             background-size: cover;
         }
 
-        body>div {
+        body>div.table {
             position: absolute;
             transform: rotateX(45deg) rotateY(0deg) rotateZ(-45deg) translateX(150px) translateY(280px);
         }
@@ -97,7 +97,16 @@
             color: #fff;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, .3) inset;
         }
-
+        .messageTable{
+            position: absolute;
+            right: 10px;
+            width: 400px;
+            height: 90%;
+            background-color: #ccca;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, .3);
+            border-radius: 10px;
+            padding: 20px;
+        }
         @keyframes loopAnimation {
             0% {
                 background-position: 0px 0px;
@@ -170,7 +179,7 @@
 </head>
 
 <body>
-    <div>
+    <div class="table">
         <div class="line1">
             <div class="box now" value="1">起点
                 <div id="player1"></div>
@@ -240,6 +249,9 @@
             <div class="box" value="20">20</div>
             <div class="box" value="19">19</div>
         </div>
+    </div>
+    <div>
+        <div class="messageTable">布告栏</div>
     </div>
 </body>
 
