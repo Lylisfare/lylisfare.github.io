@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            background-image: url(./005-Sunset01.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        body>div {
+            position: absolute;
+            transform: rotateX(45deg) rotateY(0deg) rotateZ(-45deg) translateX(150px) translateY(280px);
+        }
+
+        body>div {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        body>div>div {
+            display: flex;
+            width: 890px;
+            gap: 10px;
+        }
+
+        .box {
+            /* box-shadow: 0px 0px 15px rgba(73, 50, 24, 0.3); */
+            border-radius: 10px;
+            background-image: url(./block.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            color: #666;
+        }
+
+        .line1>div {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .line2>div {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .center {
+            width: 730px !important;
+        }
+
+        .roll {
+            border: 0px;
+            outline: none;
+            user-select: none;
+            font-size: 40px;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: transparent;
+            color: #fff;
+            text-shadow: 0px 0px 5px #000;
+        }
+
+        .ex {
+            color: #fff;
+            text-shadow: 0px 0px 5px #000;
+        }
+
+        .btn {
+            padding: 10px 20px 10px 20px;
+            font-size: 20px;
+            border-radius: 10px;
+            outline: none;
+            border: none;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, .3);
+            background-color: #fff;
+        }
+        .btn:active{
+            background-color: #666;
+            color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, .3) inset;
+        }
+
+        @keyframes loopAnimation {
+            0% {
+                background-position: 0px 0px;
+            }
+
+            25% {
+                background-position: 32px 0px;
+            }
+
+            50% {
+                background-position: 64px 0px;
+            }
+
+            75% {
+                background-position: 96px 0px;
+            }
+
+            100% {
+                background-position: 0px 0px;
+            }
+        }
+
+        #player1 {
+            width: 32px;
+            height: 48px;
+            overflow: hidden;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            color: #fff;
+            /* box-shadow: 0px 0px 5px rgba(0, 0, 0, .3); */
+            transform: rotateX(0deg) rotateY(-12deg) rotateZ(45deg) translateY(-18px);
+            background-image: url(./001-Fighter01.png);
+            background-position: 0px 0px;
+            animation: loopAnimation 1s infinite steps(1, start);
+        }
+
+
+
+        #player2 {
+            width: 32px;
+            height: 48px;
+            overflow: hidden;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #fff;
+            /* box-shadow: 0px 0px 5px rgba(0, 0, 0, .3); */
+            transform: rotateX(0deg) rotateY(-12deg) rotateZ(45deg) translateY(-18px);
+            background-image: url(./002-Fighter02.png);
+            background-position: 0px 0px;
+            animation: loopAnimation 1s infinite steps(1, start);
+        }
+
+        #player3 {
+            width: 32px;
+            height: 48px;
+            overflow: hidden;
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            color: #fff;
+            /* box-shadow: 0px 0px 5px rgba(0, 0, 0, .3); */
+            transform: rotateX(0deg) rotateY(-12deg) rotateZ(45deg) translateY(-18px);
+            background-image: url(./022-Hunter03.png);
+            background-position: 0px 0px;
+            animation: loopAnimation 1s infinite steps(1, start);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="line1">
+            <div class="box now" value="1">起点
+                <div id="player1"></div>
+                <div id="player2"></div>
+                <div id="player3"></div>
+            </div>
+            <div class="box" value="2">2</div>
+            <div class="box" value="3">3</div>
+            <div class="box" value="4">4</div>
+            <div class="box" value="5">5</div>
+            <div class="box" value="6">6</div>
+            <div class="box" value="7">7</div>
+            <div class="box" value="8">8</div>
+            <div class="box" value="9">9</div>
+            <div class="box" value="10">10</div>
+        </div>
+        <div class="line2">
+            <div class="box" value="36">36</div>
+            <div class="center"></div>
+            <div class="box" value="11">11</div>
+        </div>
+        <div class="line2">
+            <div class="box" value="35">35</div>
+            <div class="center"></div>
+            <div class="box" value="12">12</div>
+        </div>
+        <div class="line2">
+            <div class="box" value="34">34</div>
+            <div class="center"><span class="ex">当前投掷点数：</span><input type="text" class="roll" value="0" id="roll-scr">
+            </div>
+            <div class="box" value="13">13</div>
+        </div>
+        <div class="line2">
+            <div class="box" value="33">33</div>
+            <div class="center"><button class="btn" id="roll-btn">点击投掷</button></div>
+            <div class="box" value="14">14</div>
+        </div>
+        <div class="line2">
+            <div class="box" value="32">32</div>
+            <div class="center"></div>
+            <div class="box" value="15">15</div>
+        </div>
+        <div class="line2">
+            <div class="box" value="31">31</div>
+            <div class="center"></div>
+            <div class="box" value="16">16</div>
+        </div>
+        <div class="line2">
+            <div class="box" value="30">30</div>
+            <div class="center"></div>
+            <div class="box" value="17">17</div>
+        </div class="box">
+        <div class="line2">
+            <div class="box" value="29">29</div>
+            <div class="center"></div>
+            <div class="box" value="18">18</div>
+        </div>
+        <div class="line1">
+            <div class="box" value="28">28</div>
+            <div class="box" value="27">27</div>
+            <div class="box" value="26">26</div>
+            <div class="box" value="25">25</div>
+            <div class="box" value="24">24</div>
+            <div class="box" value="23">23</div>
+            <div class="box" value="22">22</div>
+            <div class="box" value="21">21</div>
+            <div class="box" value="20">20</div>
+            <div class="box" value="19">19</div>
+        </div>
+    </div>
+</body>
+
+<script>
+    let boxs = document.querySelectorAll(".box");
+    let arr = [];
+
+    for (let i = 0; i < boxs.length; i++) {
+        let a = boxs[i];
+        let j = a.getAttribute("value") - 1;
+        arr[j] = a;
+    }
+
+    let p1 = { el: document.getElementById("player1"), now: 0, nowEl: arr[0] };
+    let p2 = { el: document.getElementById("player2"), now: 0, nowEl: arr[0] };
+    let p3 = { el: document.getElementById("player3"), now: 0, nowEl: arr[0] };
+
+    let rollBtn = document.getElementById("roll-btn");
+    let rollScreen = document.getElementById("roll-scr");
+
+    let queue = [p1, p2, p3]
+    let queueNow = 0;
+
+    rollBtn.addEventListener("click", function () {
+        let val = Math.round(Math.random() * 6)
+        if (!val) val = 1;
+        rollScreen.value = val;
+
+        let pNow = queue[queueNow];
+
+        pNow.now += val;
+        if (pNow.now < arr.length) {
+            pNow.nowEl = arr[pNow.now];
+            pNow.nowEl.appendChild(pNow.el);
+        } else {
+            pNow.now -= arr.length;
+            pNow.nowEl = arr[pNow.now];
+            pNow.nowEl.appendChild(pNow.el);
+        }
+
+        if (queueNow < queue.length - 1) {
+            queueNow += 1
+        } else {
+            queueNow = 0
+        }
+    });
+
+
+</script>
+
+</html>
