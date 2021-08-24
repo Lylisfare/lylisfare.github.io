@@ -117,15 +117,30 @@ function gameLoop() {
     }
 
     pNow.operate.setAttribute("disabled","disabled");
+    
     //设置下一位
-    if (pNow.next.pauseRound > 0) {
+    pNow = run(pNow.next);
+
+    function run(p){
+        if(p.pauseRound > 0) {
+            p.pauseRound -= 1;
+            return run(p.next);
+        }else{
+            return p;
+        }
+    }
+
+
+    /* if (pNow.next.pauseRound > 0) {
         pNow.next.pauseRound--;
         pNow = pNow.next.next;
-    } else if (pNow.next.bankruptcy) {
-        pNow = pNow.next.next;
-    } else {
+        if(pNow.pauseRound > 0){
+            pNow.pauseRound--;
+            pNow = pNow.next;
+        }
+    }else{
         pNow = pNow.next;
-    }
+    } */
     pNow.operate.removeAttribute("disabled");
 }
 
@@ -199,7 +214,7 @@ function triggerEvent(pNow, num) {
 
         case 32:
             (() => {
-                let cost = Math.round(Math.random() * 1000);
+                let cost = Math.round(Math.random() * 10000);
                 bankDeposit.value = +bankDeposit.value - cost;
                 str = `参加公益活动，消费 ${cost} 元`
 
@@ -231,7 +246,7 @@ function triggerEvent(pNow, num) {
     }
 
 }
-
+loop();
 function loop() {
     if (!gameover) {
         rollBtn.click();
