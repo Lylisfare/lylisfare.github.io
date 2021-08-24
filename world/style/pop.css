@@ -67,3 +67,44 @@
     height: 80px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, .3);
 }
+
+.pop .stocks>div{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding: 5px 10px 5px 10px;
+}
+
+.pop .stocks>div>div{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+[stocksStatus="up"]{
+    color: #f00;
+    display: flex;
+    gap: 5px;
+}
+[stocksStatus="up"]::before{
+    content: "涨";
+    background-color: #f00;
+    color: #fff;
+    padding: 2px 5px 2px 5px;
+    display: inline-flex;
+}
+[stocksStatus="down"]{
+    color: #0f0;
+    display: flex;
+    gap: 5px;
+}
+[stocksStatus="down"]::before{
+    content: "跌";
+    background-color: #0f0;
+    color: #fff;
+    padding: 2px 5px 2px 5px;
+    display: inline-flex;
+}
+[stocksPercent]::after{
+    content: attr(stocksPercent);
+    font-size: 24px;
+}
