@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/public.css">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/player.css">
+    <link rel="stylesheet" href="./style/message.css">
+    <link rel="stylesheet" href="./style/map.css">
+    <link rel="stylesheet" href="./style/pop.css">
+    <script src="./script/script.js" defer></script>
+</head>
+
+<body>
+    <div class="table">
+        <div class="line1">
+            <div class="box now" value="1">起点
+                <div class="player" id="player1" name="张三"></div>
+                <div class="player" id="player2" name="李四"></div>
+                <div class="player" id="player3" name="王五"></div>
+            </div>
+            <div class="box" value="2">2</div>
+            <div class="box" value="3">3</div>
+            <div class="box" value="4">4</div>
+            <div class="box" value="5">5</div>
+            <div class="box" value="6" area="event">跃迁</div>
+            <div class="box" value="7">7</div>
+            <div class="box" value="8">8</div>
+            <div class="box" value="9">9</div>
+            <div class="box" value="10" area="event">旅游</div>
+        </div>
+        <div class="line2">
+            <div class="box" value="36">36</div>
+            <div class="center"></div>
+            <div class="box" value="11">11</div>
+        </div>
+        <div class="line2">
+            <div class="box" value="35">35</div>
+            <div class="center"></div>
+            <div class="box" value="12">12</div>
+        </div>
+        <div class="line2">
+            <div class="box" value="34">34</div>
+            <div class="center"><span class="ex">当前投掷点数：</span><input type="text" class="roll" value="0" id="roll-scr"
+                    readonly>
+            </div>
+            <div class="box" value="13">13</div>
+        </div>
+        <div class="line2">
+            <div class="box" value="33">33</div>
+            <div class="center"><button class="btn" id="roll-btn">点击投掷</button></div>
+            <div class="box" value="14" area="event">公益</div>
+        </div>
+        <div class="line2">
+            <div class="box" value="32" area="event">公益</div>
+            <div class="center"></div>
+            <div class="box" value="15">15</div>
+        </div>
+        <div class="line2">
+            <div class="box" value="31">31</div>
+            <div class="center"></div>
+            <div class="box" value="16">16</div>
+        </div>
+        <div class="line2">
+            <div class="box" value="30">30</div>
+            <div class="center"></div>
+            <div class="box" value="17">17</div>
+        </div class="box">
+        <div class="line2">
+            <div class="box" value="29">29</div>
+            <div class="center"></div>
+            <div class="box" value="18">18</div>
+        </div>
+        <div class="line1">
+            <div class="box" value="28" area="event">抽奖</div>
+            <div class="box" value="27">27</div>
+            <div class="box" value="26">26</div>
+            <div class="box" value="25">25</div>
+            <div class="box" value="24">24</div>
+            <div class="box" value="23" area="event">重开</div>
+            <div class="box" value="22">22</div>
+            <div class="box" value="21" area="event">回朔</div>
+            <div class="box" value="20">20</div>
+            <div class="box" value="19" area="event">旅馆</div>
+        </div>
+    </div>
+    <div>
+        <div class="messageTable">
+            <div class="title">布告栏</div>
+            <div class="playerInfo">
+                张三 现金：$
+                <input type="text" class="bankDeposit" value="100000" id="bankDeposit1" readonly>
+                <button id="player1operate" onclick="document.getElementById('p1pop').removeAttribute('style')">操作</button>
+            </div>
+            <div class="playerInfo">
+                李四 现金：$
+                <input type="text" class="bankDeposit" value="100000" id="bankDeposit2" readonly>
+                <button id="player2operate" disabled>操作</button>
+            </div>
+            <div class="playerInfo">
+                王五 现金：$
+                <input type="text" class="bankDeposit" value="100000" id="bankDeposit3" readonly>
+                <button id="player3operate" disabled>操作</button>
+            </div>
+            <div class="messageMain" id="billboard">
+                <div class="messageMainTitle">公共触发事件</div>
+            </div>
+        </div>
+    </div>
+    <div class="pop" id="p1pop" style="display: none;">
+        <div class="popMain">
+            <div class="popHeader">工作台-张三<button class="closeBtn" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'">关闭</button></div>
+            <div class="popBody">
+                <h3>道具卡</h3>
+                <div class="card">
+                    <div>卡片1</div>
+                    <div>卡片2</div>
+                    <div>卡片3</div>
+                    <div>卡片4</div>
+                    <div>卡片5</div>
+                    <div>卡片6</div>
+                </div>
+                <h3>地产</h3>
+                <div class="house">
+                    <div>地产1</div>
+                    <div>地产2</div>
+                    <div>地产3</div>
+                    <div>地产4</div>
+                    <div>地产5</div>
+                    <div>地产6</div>
+                </div>
+                <h3>股票</h3>
+                <div class="stocks">
+                    <div>猫态A</div>
+                    <div>五狼耶A</div>
+                    <div>锡纸榔</div>
+                    <div>广帅博</div>
+                    <div>漆皮榔</div>
+                    <div>五狼耶B</div>
+                    <div>猫态B</div>
+                    <div>五狼耶C</div>
+                    <div>猫态C</div>
+                    <div>五狼耶D</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

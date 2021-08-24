@@ -1,0 +1,42 @@
+div.title {
+    display: flex;
+    align-items: center;
+}
+
+div.messageTable {
+    position: absolute;
+    right: 10px;
+    width: 400px;
+    height: 90%;
+    background-color: #fffa;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .3);
+    border-radius: 10px;
+    padding: 20px;
+    display: grid;
+    grid-template-rows: 40px 40px 40px 40px 1fr;
+    gap: 10px;
+}
+
+div.messageTable>div.playerInfo {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .3) inset;
+    padding: 0px 10px 0px 10px;
+}
+
+div.messageTable .playerInfo {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+}
+
+div.messageTable .messageMain {
+    overflow-y: scroll;
+}
+
+input.bankDeposit {
+    border: none;
+    background-color: transparent;
+    text-align: right;
+    font-size: 16px;
+    outline: none;
+    user-select: none;
+}

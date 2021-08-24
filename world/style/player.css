@@ -1,0 +1,63 @@
+.player{
+    position: relative;
+}
+.player::before{
+    content: attr(name);
+    display: flex;
+    font-size: 14px;
+    position: absolute;
+    transform: translateY(-14px);
+    width: 100%;
+    justify-content: center;
+    text-shadow: 0px 0px 3px #000;
+    color: greenyellow;
+    font-weight: bolder;
+
+}
+#player1 {
+    width: 32px;
+    height: 48px;
+    /* overflow: hidden; */
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    color: #fff;
+    /* box-shadow: 0px 0px 5px rgba(0, 0, 0, .3); */
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(45deg) scaleY(2) translateY(-20px);
+    background-image: url(../image/001-Fighter01.png);
+    background-position: 0px 0px;
+    animation: loopAnimation 1s infinite steps(1, start);
+    z-index: 999;
+}
+
+#player2 {
+    width: 32px;
+    height: 48px;
+    /* overflow: hidden; */
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #fff;
+    /* box-shadow: 0px 0px 5px rgba(0, 0, 0, .3); */
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(45deg) scaleY(2) translateY(-20px);
+    background-image: url(../image/002-Fighter02.png);
+    background-position: 0px 0px;
+    animation: loopAnimation 1s infinite steps(1, start);
+    z-index: 998;
+}
+
+#player3 {
+    width: 32px;
+    height: 48px;
+    /* overflow: hidden; */
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    color: #fff;
+    /* box-shadow: 0px 0px 5px rgba(0, 0, 0, .3); */
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(45deg) scaleY(2) translateY(-20px);
+    background-image: url(../image/022-Hunter03.png);
+    background-position: 0px 0px;
+    animation: loopAnimation 1s infinite steps(1, start);
+    z-index: 997;
+}
