@@ -12,79 +12,85 @@
     <link rel="stylesheet" href="./style/message.css">
     <link rel="stylesheet" href="./style/map.css">
     <link rel="stylesheet" href="./style/pop.css">
-    <script src="./script/script.js" defer></script>
+    <script src="./script/el.js" defer></script>
+    <script src="./script/util.js" defer></script>
+    <script src="./script/event.js" defer></script>
+    <script src="./script/loop.js" defer></script>
+    <script src="./script/main.js" defer></script>
+    <script src="./script/test.js" defer></script>
 </head>
 
 <body>
     <div class="table">
         <div class="line1">
-            <div class="box now" value="1">起点
+            <div class="box now" value="1" area="event">起点
                 <div class="player" id="player1" name="张三"></div>
                 <div class="player" id="player2" name="李四"></div>
                 <div class="player" id="player3" name="王五"></div>
             </div>
-            <div class="box" value="2">2</div>
-            <div class="box" value="3">3</div>
-            <div class="box" value="4">4</div>
-            <div class="box" value="5">5</div>
+            <div class="box" value="2" area="event">2</div>
+            <div class="box" value="3" area="event">3</div>
+            <div class="box" value="4" area="event">4</div>
+            <div class="box" value="5" area="event">5</div>
             <div class="box" value="6" area="event">跃迁</div>
-            <div class="box" value="7">7</div>
-            <div class="box" value="8">8</div>
-            <div class="box" value="9">9</div>
+            <div class="box" value="7" area="event">7</div>
+            <div class="box" value="8" area="event">8</div>
+            <div class="box" value="9" area="event">9</div>
             <div class="box" value="10" area="event">旅游</div>
         </div>
         <div class="line2">
-            <div class="box" value="36">36</div>
+            <div class="box" value="36" area="event">36</div>
             <div class="center"></div>
-            <div class="box" value="11">11</div>
+            <div class="box" value="11" area="event">11</div>
         </div>
         <div class="line2">
-            <div class="box" value="35">35</div>
+            <div class="box" value="35" area="event">35</div>
             <div class="center"></div>
-            <div class="box" value="12">12</div>
+            <div class="box" value="12" area="event">12</div>
         </div>
         <div class="line2">
-            <div class="box" value="34">34</div>
-            <div class="center"><span class="ex">当前投掷点数：</span><input type="text" class="roll" value="0" id="roll-scr"
-                    readonly>
+            <div class="box" value="34" area="event">34</div>
+            <div class="center">
+                <span class="ex">当前投掷点数：</span>
+                <input type="text" class="roll" value="0" id="roll-scr" readonly>
             </div>
-            <div class="box" value="13">13</div>
+            <div class="box" value="13" area="event">13</div>
         </div>
         <div class="line2">
-            <div class="box" value="33">33</div>
+            <div class="box" value="33" area="event">33</div>
             <div class="center"><button class="btn" id="roll-btn">点击投掷</button></div>
             <div class="box" value="14" area="event">公益</div>
         </div>
         <div class="line2">
             <div class="box" value="32" area="event">公益</div>
             <div class="center"></div>
-            <div class="box" value="15">15</div>
+            <div class="box" value="15" area="event">15</div>
         </div>
         <div class="line2">
-            <div class="box" value="31">31</div>
+            <div class="box" value="31" area="event">31</div>
             <div class="center"></div>
-            <div class="box" value="16">16</div>
+            <div class="box" value="16" area="event">16</div>
         </div>
         <div class="line2">
-            <div class="box" value="30">30</div>
+            <div class="box" value="30" area="event">30</div>
             <div class="center"></div>
-            <div class="box" value="17">17</div>
+            <div class="box" value="17" area="event">17</div>
         </div class="box">
         <div class="line2">
-            <div class="box" value="29">29</div>
+            <div class="box" value="29" area="event">29</div>
             <div class="center"></div>
-            <div class="box" value="18">18</div>
+            <div class="box" value="18" area="event">18</div>
         </div>
         <div class="line1">
             <div class="box" value="28" area="event">抽奖</div>
-            <div class="box" value="27">27</div>
-            <div class="box" value="26">26</div>
-            <div class="box" value="25">25</div>
-            <div class="box" value="24">24</div>
+            <div class="box" value="27" area="event">27</div>
+            <div class="box" value="26" area="event">26</div>
+            <div class="box" value="25" area="event">25</div>
+            <div class="box" value="24" area="event">24</div>
             <div class="box" value="23" area="event">重开</div>
-            <div class="box" value="22">22</div>
+            <div class="box" value="22" area="event">22</div>
             <div class="box" value="21" area="event">回朔</div>
-            <div class="box" value="20">20</div>
+            <div class="box" value="20" area="event">20</div>
             <div class="box" value="19" area="event">旅馆</div>
         </div>
     </div>
@@ -94,7 +100,8 @@
             <div class="playerInfo">
                 张三 现金：$
                 <input type="text" class="bankDeposit" value="100000" id="bankDeposit1" readonly>
-                <button id="player1operate" onclick="document.getElementById('p1pop').removeAttribute('style')">操作</button>
+                <button id="player1operate"
+                    onclick="document.getElementById('p1pop').removeAttribute('style')">操作</button>
             </div>
             <div class="playerInfo">
                 李四 现金：$
@@ -113,7 +120,8 @@
     </div>
     <div class="pop" id="p1pop" style="display: none;">
         <div class="popMain">
-            <div class="popHeader">工作台-张三<button class="closeBtn" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'">关闭</button></div>
+            <div class="popHeader">工作台-张三<button class="closeBtn"
+                    onclick="this.parentNode.parentNode.parentNode.style.display = 'none'">关闭</button></div>
             <div class="popBody">
                 <h3>道具卡</h3>
                 <div class="card">

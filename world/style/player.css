@@ -1,7 +1,8 @@
-.player{
+.player {
     position: relative;
 }
-.player::before{
+
+.player::before {
     content: attr(name);
     display: flex;
     font-size: 14px;
@@ -12,8 +13,8 @@
     text-shadow: 0px 0px 3px #000;
     color: greenyellow;
     font-weight: bolder;
-
 }
+
 #player1 {
     width: 32px;
     height: 48px;
