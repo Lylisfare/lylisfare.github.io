@@ -2,20 +2,18 @@
 
 header {
     height: 40px;
-    /*box-shadow:0px 0px 10px #ccc;*/
     background-color: #fffc;
     color: #666;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0px 40px 0px 40px;
+    height: 40px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, .1);
     animation: fontChange 3s infinite;
 }
 
 main {
-    min-width: 1280px;
-    background-color: ;
     min-height: 800px;
     padding: 20px;
     background: linear-gradient(90deg, rgba(180, 180, 180, 0.15) 10%, rgba(0, 0, 0, 0) 10%), linear-gradient(rgba(180, 180, 180, 0.15) 10%, rgba(0, 0, 0, 0) 10%);
@@ -42,9 +40,6 @@ a:hover>span {
 
 body {
     background-color: #eee;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
 }
 
 ol {
