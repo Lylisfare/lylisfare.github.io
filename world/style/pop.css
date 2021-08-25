@@ -11,7 +11,7 @@
     width: inherit;
     height: 100%;
     position: relative;
-    background-color: #fff;
+    background-color: #fffc;
     width: 800px;
     height: 600px;
     transform: translate(-50%, -50%);
@@ -27,7 +27,7 @@
 }
 .pop .popBody{
     overflow-y: scroll;
-    padding: 20px;
+    padding: 0px 20px 20px 20px;
 }
 .pop .closeBtn{
     outline: none;
