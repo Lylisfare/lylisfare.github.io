@@ -1,0 +1,451 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="../lib/style/flow.css">
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #fcfcfc;
+    }
+
+    .dragItem {
+        width: 40px;
+        height: 40px;
+        background-color: brown;
+        position: absolute;
+        color: aliceblue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .block {
+        width: 40px;
+        height: 40px;
+        border: 1px solid #ccc;
+    }
+
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    header>div {
+        width: fit-content;
+    }
+
+    a {
+        user-select: none !important;
+    }
+
+    * input {
+        display: inline-block;
+        border: 0px;
+        box-shadow: 0px 0px 2px #000;
+    }
+
+    .mapContainer {
+        width: 100%;
+    }
+</style>
+
+<body>
+    <script>
+        function initDragItem(item) {
+            item.addEventListener("dragend", function (e) {
+                const css = window.getComputedStyle(this, null);
+                const ox = +e.offsetX;
+                const oy = +e.offsetY;
+                const x = +e.clientX;
+                const y = +e.clientY;
+                const w = +css.width.replace("px", "") / 2;
+                const h = +css.height.replace("px", "") / 2;
+                this.style.left = `${x - w}px`;
+                this.style.top = `${y - h}px`;
+            });
+        }
+
+        function initDragFlow(item) {
+
+            item.addEventListener("dragend", function (e) {
+                const css = window.getComputedStyle(this, null);
+                const ox = +e.offsetX;
+                const oy = +e.offsetY;
+                const x = +e.clientX;
+                const y = +e.clientY;
+                const w = +css.width.replace("px", "") / 2;
+                const h = +css.height.replace("px", "") / 2;
+
+                this.style.left = `${x}px`;
+                this.style.top = `${y}px`;
+            });
+        }
+
+        function addItem() {
+
+        }
+    </script>
+    <header>
+        <div>
+            <select name="" id="">
+                <option value="">默认世界</option>
+                <option value="">世界1</option>
+                <option value="">世界2</option>
+            </select>
+            <a href="javascript:void(0)">随机创造</a>
+            <a href="javascript:void(0)">创造</a>
+            <a href="javascript:void(0)">毁灭</a>
+        </div>
+        <div>
+            <a href="javascript:void(0)">合并重叠图块</a>
+            <a href="javascript:void(0)">添加</a>
+            <a href="javascript:void(0)">删除</a>
+            <a href="javascript:void(0)">撤销</a>
+            <a href="javascript:void(0)">重做</a>
+        </div>
+
+    </header>
+
+    <div class="flow" draggable="true" onclick="onFocus(this,'flow')">
+        <div>图块</div>
+        <div>
+            <table>
+                <tr>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                </tr>
+                <tr>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                </tr>
+                <tr>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                </tr>
+                <tr>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                </tr>
+                <tr>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                </tr>
+                <tr>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                </tr>
+                <tr>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                </tr>
+                <tr>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                </tr>
+                <tr>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                </tr>
+                <tr>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                </tr>
+                <tr>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                </tr>
+                <tr>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                </tr>
+                <tr>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                </tr>
+                <tr>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                </tr>
+                <tr>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                </tr>
+                <tr>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                </tr>
+                <tr>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                </tr>
+                <tr>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                    <td class="block">1</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="flow" draggable="true" onclick="onFocus(this,'flow')">
+        <div>地图设置</div>
+        <div>
+            基本设置
+            <div>地图宽度：<input type="text"></div>
+            <div>地图高度：<input type="text"></div>
+            <div>背景图：<select name="" id="">
+                    <option value="">外部世界</option>
+                    <option value="">宇宙空间</option>
+                    <option value="">行星表面</option>
+                </select></div>
+            环境
+            <div>空气阻力系数：<input type="text"></div>
+            <div>液体阻力系数：<input type="text"> 像素/秒</div>
+            <div>重力加速度：<input type="text"> 像素/秒</div>
+        </div>
+    </div>
+
+    <div class="flow" draggable="true" onclick="onFocus(this,'flow')">
+        <div>多边形</div>
+        <div>
+            <div>坐标：</div>
+            <div>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+            </div>
+            <div><a href="javascript:void(0)">构建</a> <a href="javascript:void(0)">更新</a></div>
+        </div>
+    </div>
+    <div class="flow" draggable="true" onclick="onFocus(this,'flow')">
+        <div>属性</div>
+        <div>
+            基本
+            <div>贴图：<img width="30px" height="30px" src="./6XG6T{K`RQ}EZ6$EACGH@T2.png" alt=""></div>
+            <div>横坐标：<input type="text"></div>
+            <div>纵坐标：<input type="text"></div>
+            <div>物块类型：<select name="" id="">
+                    <option value="">地图</option>
+                    <option value="">道具</option>
+                </select></div>
+            <div>形状：<select name="" id="">
+                    <option value="">矩形</option>
+                    <option value="">圆形</option>
+                    <option value="">椭圆形</option>
+                    <option value="">多边形</option>
+                </select></div>
+            物理属性
+            <div>质量：<input type="text"></div>
+            <div>弹性系数：<input type="text"></div>
+            交互
+            <div>运动类型：<select name="" id="">
+                    <option value="">固定</option>
+                    <option value="">动态</option>
+                    <option value="">运动</option>
+                </select></div>
+            <div>穿透类型：<select name="" id="">
+                    <option value="">可穿透</option>
+                    <option value="">禁止穿透</option>
+                </select></div>
+            特效
+            <div>动画效果：<select name="" id="">
+                    <option value="">闪烁</option>
+                    <option value="">渐入渐出</option>
+                </select></div>
+            <div>动画间隔时间：<input type="text"> 秒</div>
+            事件
+            <div>事件：<select name="" id="">
+                    <option value=""></option>
+                    <option value="">恶龙被勇者铲除</option>
+                    <option value="">勇者变成恶龙</option>
+                </select>
+                <a href="javascript:void(0)">新建事件</a>
+            </div>
+            <div>事件触发类型：<select name="" id="">
+                    <option value=""></option>
+                    <option value="">按确定键触发</option>
+                    <option value="">接触触发</option>
+                    <option value="">自动触发</option>
+                </select></div>
+            <div>事件触发间隔时间：<input type="text"> 秒</div>
+
+        </div>
+    </div>
+
+    <div class="flow" draggable="true" onclick="onFocus(this,'flow')">
+        <div>事件 <a href="javascript:void(0)">新建事件</a></div>
+        <div>
+            <table width="100%">
+                <tr>
+                    <td>名称</td>
+                    <td>ID </td>
+                </tr>
+                <tr>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="mapContainer">
+        <div class="dragItem" draggable="true">
+            1
+        </div>
+        <div class="dragItem" draggable="true">
+            2
+        </div>
+        <div class="dragItem" draggable="true">
+            3
+        </div>
+        <div class="dragItem" draggable="true">
+            4
+        </div>
+    </div>
+
+
+
+
+    <script>
+        function onFocus(dom, className) {
+            const list = document.getElementsByClassName(className);
+            for (let i = 0; i < list.length; i++) {
+                const li = list[i];
+                li.style.zIndex = 20;
+            }
+            dom.style.zIndex = 9999999999;
+        }
+
+        const note = console.log;
+
+        const flow = document.getElementsByClassName("flow");
+        const flen = flow.length;
+        for (let i = 0; i < flen; i++) {
+            const item = flow[i];
+            initDragFlow(item);
+        }
+
+
+        const list = document.getElementsByClassName("dragItem");
+        const len = list.length;
+
+        for (let i = 0; i < len; i++) {
+            const item = list[i];
+            initDragItem(item);
+        }
+    </script>
+    <!--script src="./rebuildpv.js"></script-->
+</body>
+
+</html>

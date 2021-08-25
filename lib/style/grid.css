@@ -1,0 +1,4 @@
+.main-body {
+    display: grid;
+    grid-template-columns: repeat(12, auto-fill);
+}

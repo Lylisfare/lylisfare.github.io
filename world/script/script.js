@@ -246,7 +246,7 @@ function triggerEvent(pNow, num) {
     }
 
 }
-loop();
+
 function loop() {
     if (!gameover) {
         rollBtn.click();
