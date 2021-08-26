@@ -2,11 +2,9 @@
 function gameLoop() {
 
     //当前回合事件
-    let val = Math.round(Math.random() * 6)
-    if (!val) val = 1;
-    rollScreen.value = val;
+    
 
-    pNow.now += val;
+    pNow.now += rollPoint;
     if (pNow.now < arr.length) {
         pNow.nowEl = arr[pNow.now];
     } else {
@@ -24,7 +22,8 @@ function gameLoop() {
     }
 
     pNow.operate.setAttribute("disabled", "disabled");
-
+    rollPoint = 0;
+    
     //设置下一位
     pNow = run(pNow.next);
 

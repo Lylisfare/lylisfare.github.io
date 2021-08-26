@@ -13,10 +13,11 @@ let time = 0;           //触发事件次数
 let bankruptcy = 0;     //破产人数
 let pNow = p1;          //正在操作玩者
 let round = 0;
+let rollPoint = 0;
 
 initGame();
 
-rollBtn.addEventListener("click", function () {
+nextRoundBtn.addEventListener("click", function () {
     if (!gameover) {
         gameLoop();
 
@@ -24,5 +25,16 @@ rollBtn.addEventListener("click", function () {
         gameReset();
         setTimeout(loop, 1000);
     }
+    nextRoundBtn.setAttribute("disabled","disabled");
+    rollBtn.removeAttribute("disabled");
 
+});
+
+rollBtn.addEventListener("click", function(){
+    let val = Math.round(Math.random() * 6)
+    if (!val) val = 1;
+    rollScreen.value = val;
+    rollPoint = val;
+    nextRoundBtn.removeAttribute("disabled");
+    rollBtn.setAttribute("disabled","disabled");
 });

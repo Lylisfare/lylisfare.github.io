@@ -21,90 +21,123 @@
     display: grid;
     grid-template-rows: 30px 1fr;
 }
-.pop .popHeader{
+
+.pop .popHeader {
     display: flex;
     justify-content: space-between;
 }
-.pop .popBody{
+
+.pop .popBody {
     overflow-y: scroll;
     padding: 0px 20px 20px 20px;
 }
-.pop .closeBtn{
+
+.pop .closeBtn {
     outline: none;
     border-radius: 100;
     background-color: transparent;
     border: 0px;
-    color:#333;
+    color: #333;
     font-size: 14px;
 }
-.pop .closeBtn:hover{
+
+.pop .closeBtn:hover {
     box-shadow: 0px 0px 3px rgba(0, 0, 0, .3);
 }
 
-.pop .popHeader{
+.pop .popHeader {
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
     user-select: none;
 }
-.pop .house{
+
+.pop .house {
     display: flex;
     gap: 10px;
 }
 
-.pop .house div{
+.pop .house div {
     width: 80px;
     height: 80px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, .3);
 }
 
-.pop .card{
+.pop .card {
     display: flex;
     gap: 10px;
 }
 
-.pop .card div{
+.pop .card div {
     width: 80px;
     height: 80px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, .3);
 }
 
-.pop .stocks>div{
+.pop .stocks>div {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #ccc;
     padding: 5px 10px 5px 10px;
 }
 
-.pop .stocks>div>div{
+.pop .stocks>div>div {
     display: flex;
     gap: 10px;
     align-items: center;
 }
-[stocksStatus="up"]{
+
+.pop .stocks>div>div>div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+[stocksStatus="up"] {
     color: #f00;
     display: flex;
     gap: 5px;
 }
-[stocksStatus="up"]::before{
+
+[stocksStatus="up"]::before {
     content: "涨";
     background-color: #f00;
     color: #fff;
-    padding: 2px 5px 2px 5px;
+    padding: 2px 2px 2px 2px;
     display: inline-flex;
 }
-[stocksStatus="down"]{
+
+[stocksStatus="down"] {
     color: #0f0;
     display: flex;
     gap: 5px;
 }
-[stocksStatus="down"]::before{
+
+[stocksStatus="down"]::before {
     content: "跌";
     background-color: #0f0;
     color: #fff;
-    padding: 2px 5px 2px 5px;
+    padding: 2px 2px 2px 2px;
     display: inline-flex;
 }
-[stocksPercent]::after{
+
+[stocksPercent]::after {
     content: attr(stocksPercent);
     font-size: 24px;
+}
+
+[stocksName]::before {
+    content: attr(stocksName);
+    font-size: 20px;
+}
+
+[stocksValue]::before {
+    content: attr(stocksValue);
+    font-size: 24px;
+    color: slategray;
+}
+
+[stockHeld]::before{
+    content: attr(stockHeld);
+    font-size: 24px;
+    color: #333;
 }

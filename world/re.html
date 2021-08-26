@@ -22,134 +22,137 @@
 
 <body>
     <div class="roll-board">
+        <button class="btn" id="next-round-btn" disabled>回合结束</button>
         <button class="btn" id="roll-btn">点击投掷</button>
         <span class="ex">当前投掷点数：</span>
         <input type="text" class="roll" value="0" id="roll-scr" readonly>
     </div>
     <div class="table">
         <div class="line1">
-            <div class="box now" value="1" area="event" event="起点">1
+            <div class="box now" value="1" area="event" event="event">
                 <div class="player" id="player1" name="张三"></div>
+            </div>
+            <div class="box" value="2" terrain="wall" area="event"></div>
+            <div class="box" value="3" area="event"></div>
+            <div class="box" value="4" area="event"></div>
+            <div class="box" value="5" area="event"></div>
+            <div class="box" value="6" area="event" event="跃迁"></div>
+            <div class="box" value="7" area="event"></div>
+            <div class="box" value="8" area="event"></div>
+            <div class="box" value="9" area="event"></div>
+            <div class="box" value="10" area="event" event="旅游"></div>
+        </div>
+        <div class="line1">
+            <div class="box" value="11" area="event"></div>
+            <div class="box" value="12" area="event" terrain="wall"></div>
+            <div class="box" value="13" area="event"></div>
+            <div class="box" value="14" area="event" event="公益"></div>
+            <div class="box" value="15" area="event"></div>
+            <div class="box" value="16" area="event">
                 <div class="player" id="player2" name="李四"></div>
+            </div>
+            <div class="box" value="17" area="event"></div>
+            <div class="box" value="18" area="event"></div>
+            <div class="box" value="19" area="event" event="旅馆"></div>
+            <div class="box" value="20" area="event"></div>
+        </div>
+        <div class="line1">
+            <div class="box" value="21" area="event" event="回溯"></div>
+            <div class="box" value="22" area="event" terrain="wall"></div>
+            <div class="box" value="23" area="event" event="重开"></div>
+            <div class="box" value="24" area="event"></div>
+            <div class="box" value="25" area="event">
                 <div class="player" id="player3" name="王五"></div>
             </div>
-            <div class="box" value="2" terrain="wall" area="event">2</div>
-            <div class="box" value="3" area="event">3</div>
-            <div class="box" value="4" area="event">4</div>
-            <div class="box" value="5" area="event">5</div>
-            <div class="box" value="6" area="event" event="跃迁">6</div>
-            <div class="box" value="7" area="event">7</div>
-            <div class="box" value="8" area="event">8</div>
-            <div class="box" value="9" area="event">9</div>
-            <div class="box" value="10" area="event" event="旅游">10</div>
+            <div class="box" value="26" area="event"></div>
+            <div class="box" value="27" area="event"></div>
+            <div class="box" value="28" area="event" event="抽奖"></div>
+            <div class="box" value="29" area="event"></div>
+            <div class="box" value="30" area="event"></div>
         </div>
         <div class="line1">
-            <div class="box" value="11" area="event">11</div>
-            <div class="box" value="12" terrain="wall" area="event">12</div>
-            <div class="box" value="13" area="event">13</div>
-            <div class="box" value="14" area="event" event="公益">14</div>
-            <div class="box" value="15" area="event">15</div>
-            <div class="box" value="16" area="event">16</div>
-            <div class="box" value="17" area="event">17</div>
-            <div class="box" value="18" area="event">18</div>
-            <div class="box" value="19" area="event" event="旅馆">19</div>
-            <div class="box" value="20" area="event">20</div>
+            <div class="box" value="31" area="event"></div>
+            <div class="box" value="32" area="event" event="公益"></div>
+            <div class="box" value="33" area="event"></div>
+            <div class="box" value="34" area="event" terrain="lake"></div>
+            <div class="box" value="35" area="event"></div>
+            <div class="box" value="36" area="event"></div>
+            <div class="box" value="37" area="event"></div>
+            <div class="box" value="38" area="event"></div>
+            <div class="box" value="39" area="event"></div>
+            <div class="box" value="40" area="event"></div>
         </div>
         <div class="line1">
-            <div class="box" value="21" area="event" event="回溯">21</div>
-            <div class="box" value="22" terrain="wall" area="event">22</div>
-            <div class="box" value="23" area="event" event="重开">23</div>
-            <div class="box" value="24" area="event">24</div>
-            <div class="box" value="25" area="event">25</div>
-            <div class="box" value="26" area="event">26</div>
-            <div class="box" value="27" area="event">27</div>
-            <div class="box" value="28" area="event" event="抽奖">28</div>
-            <div class="box" value="29" area="event">29</div>
-            <div class="box" value="30" area="event">30</div>
+            <div class="box" value="41" area="event"></div>
+            <div class="box" value="42" area="event"></div>
+            <div class="box" value="43" area="event"></div>
+            <div class="box" value="44" area="event"></div>
+            <div class="box" value="45" area="event" terrain="lake"></div>
+            <div class="box" value="46" area="event"></div>
+            <div class="box" value="47" area="event"></div>
+            <div class="box" value="48" area="event"></div>
+            <div class="box" value="49" area="event"></div>
+            <div class="box" value="50" area="event"></div>
         </div>
         <div class="line1">
-            <div class="box" value="31" area="event">31</div>
-            <div class="box" value="32" area="event" event="公益">32</div>
-            <div class="box" value="33" area="event">33</div>
-            <div class="box" value="34" terrain="lake" area="event">34</div>
-            <div class="box" value="35" area="event">35</div>
-            <div class="box" value="36" area="event">36</div>
-            <div class="box" value="37" area="event">37</div>
-            <div class="box" value="38" area="event">38</div>
-            <div class="box" value="39" area="event">39</div>
-            <div class="box" value="40" area="event">40</div>
+            <div class="box" value="51" area="event"></div>
+            <div class="box" value="52" area="event"></div>
+            <div class="box" value="53" area="event"></div>
+            <div class="box" value="54" area="event"></div>
+            <div class="box" value="55" area="event" terrain="lake">55</div>
+            <div class="box" value="56" area="event"></div>
+            <div class="box" value="57" area="event"></div>
+            <div class="box" value="58" area="event"></div>
+            <div class="box" value="59" area="event"></div>
+            <div class="box" value="60" area="event"></div>
         </div>
         <div class="line1">
-            <div class="box" value="41" area="event">41</div>
-            <div class="box" value="42" area="event">42</div>
-            <div class="box" value="43" area="event">43</div>
-            <div class="box" value="44" area="event">44</div>
-            <div class="box" value="45" terrain="lake" area="event">45</div>
-            <div class="box" value="46" area="event">46</div>
-            <div class="box" value="47" area="event">47</div>
-            <div class="box" value="48" area="event">48</div>
-            <div class="box" value="49" area="event">49</div>
-            <div class="box" value="50" area="event">50</div>
+            <div class="box" value="61" area="event"></div>
+            <div class="box" value="62" area="event"></div>
+            <div class="box" value="63" area="event"></div>
+            <div class="box" value="64" area="event"></div>
+            <div class="box" value="65" area="event"></div>
+            <div class="box" value="66" area="event"></div>
+            <div class="box" value="67" area="event"></div>
+            <div class="box" value="68" area="event"></div>
+            <div class="box" value="69" area="event"></div>
+            <div class="box" value="70" area="event"></div>
         </div>
         <div class="line1">
-            <div class="box" value="51" area="event">51</div>
-            <div class="box" value="52" area="event">52</div>
-            <div class="box" value="53" area="event">53</div>
-            <div class="box" value="54" area="event">54</div>
-            <div class="box" value="55" terrain="lake" area="event">55</div>
-            <div class="box" value="56" area="event">56</div>
-            <div class="box" value="57" area="event">57</div>
-            <div class="box" value="58" area="event">58</div>
-            <div class="box" value="59" area="event">59</div>
-            <div class="box" value="60" area="event">60</div>
+            <div class="box" value="71" area="event"></div>
+            <div class="box" value="72" area="event"></div>
+            <div class="box" value="73" area="event"></div>
+            <div class="box" value="74" area="event"></div>
+            <div class="box" value="75" area="event"></div>
+            <div class="box" value="76" area="event"></div>
+            <div class="box" value="77" area="event" terrain="lake"></div>
+            <div class="box" value="78" area="event"></div>
+            <div class="box" value="79" area="event"></div>
+            <div class="box" value="80" area="event"></div>
         </div>
         <div class="line1">
-            <div class="box" value="61" area="event">61</div>
-            <div class="box" value="62" area="event">62</div>
-            <div class="box" value="63" area="event">63</div>
-            <div class="box" value="64" area="event">64</div>
-            <div class="box" value="65" area="event">65</div>
-            <div class="box" value="66" area="event">66</div>
-            <div class="box" value="67" area="event">67</div>
-            <div class="box" value="68" area="event">68</div>
-            <div class="box" value="69" area="event">69</div>
-            <div class="box" value="70" area="event">70</div>
+            <div class="box" value="81" area="event"></div>
+            <div class="box" value="82" area="event"></div>
+            <div class="box" value="83" area="event"></div>
+            <div class="box" value="84" area="event"></div>
+            <div class="box" value="85" area="event"></div>
+            <div class="box" value="86" area="event"></div>
+            <div class="box" value="87" area="event"></div>
+            <div class="box" value="88" area="event"></div>
+            <div class="box" value="89" area="event"></div>
+            <div class="box" value="90" area="event"></div>
         </div>
         <div class="line1">
-            <div class="box" value="71" area="event">71</div>
-            <div class="box" value="72" area="event">72</div>
-            <div class="box" value="73" area="event">73</div>
-            <div class="box" value="74" area="event">74</div>
-            <div class="box" value="75" area="event">75</div>
-            <div class="box" value="76" area="event">76</div>
-            <div class="box" value="77" terrain="lake" area="event">77</div>
-            <div class="box" value="78" area="event">78</div>
-            <div class="box" value="79" area="event">79</div>
-            <div class="box" value="80" area="event">80</div>
-        </div>
-        <div class="line1">
-            <div class="box" value="81" area="event">81</div>
-            <div class="box" value="82" area="event">82</div>
-            <div class="box" value="83" area="event">83</div>
-            <div class="box" value="84" area="event">84</div>
-            <div class="box" value="85" area="event">85</div>
-            <div class="box" value="86" area="event">86</div>
-            <div class="box" value="87" area="event">87</div>
-            <div class="box" value="88" area="event">88</div>
-            <div class="box" value="89" area="event">89</div>
-            <div class="box" value="90" area="event">90</div>
-        </div>
-        <div class="line1">
-            <div class="box" value="91" area="event">91</div>
-            <div class="box" value="92" area="event">92</div>
-            <div class="box" value="93" area="event">93</div>
-            <div class="box" value="94" area="event">94</div>
-            <div class="box" value="95" area="event">95</div>
-            <div class="box" value="96" area="event">96</div>
-            <div class="box" value="97" area="event">97</div>
-            <div class="box" value="98" area="event">98</div>
-            <div class="box" value="99" area="event">99</div>
-            <div class="box" value="100" area="event">100</div>
+            <div class="box" value="91" area="event"></div>
+            <div class="box" value="92" area="event"></div>
+            <div class="box" value="93" area="event"></div>
+            <div class="box" value="94" area="event"></div>
+            <div class="box" value="95" area="event"></div>
+            <div class="box" value="96" area="event"></div>
+            <div class="box" value="97" area="event"></div>
+            <div class="box" value="98" area="event"></div>
+            <div class="box" value="99" area="event"></div>
+            <div class="box" value="100" area="event"></div>
         </div>
     </div>
     <div>
@@ -158,8 +161,7 @@
             <div class="playerInfo">
                 张三 现金：$
                 <input type="text" class="bankDeposit" value="100000" id="bankDeposit1" readonly>
-                <button class="playerOperate" id="player1operate"
-                    onclick="document.getElementById('p1pop').removeAttribute('style')">工作台</button>
+                <button class="playerOperate" id="player1operate">工作台</button>
             </div>
             <div class="playerInfo">
                 李四 现金：$
@@ -176,156 +178,492 @@
             </div>
         </div>
     </div>
+    <!----->
     <div class="pop" id="p1pop" style="display: none;">
         <div class="popMain">
-            <div class="popHeader">工作台-张三<button class="closeBtn"
-                    onclick="this.parentNode.parentNode.parentNode.style.display = 'none'">关闭</button></div>
+            <div class="popHeader">工作台-张三
+                <button class="closeBtn" id="p1popCloseBtn">关闭</button>
+            </div>
             <div class="popBody">
                 <h3>道具卡</h3>
                 <div class="card">
-                    <div>卡片1</div>
-                    <div>卡片2</div>
-                    <div>卡片3</div>
-                    <div>卡片4</div>
-                    <div>卡片5</div>
-                    <div>卡片6</div>
+                    <div id="p1card1">卡片1</div>
+                    <div id="p1card2">卡片2</div>
+                    <div id="p1card3">卡片3</div>
+                    <div id="p1card4">卡片4</div>
+                    <div id="p1card5">卡片5</div>
+                    <div id="p1card5">卡片6</div>
                 </div>
                 <h3>地产</h3>
                 <div class="house">
-                    <div>地产1</div>
-                    <div>地产2</div>
-                    <div>地产3</div>
-                    <div>地产4</div>
-                    <div>地产5</div>
-                    <div>地产6</div>
+                    <div id="p1house1">地产1</div>
+                    <div id="p1house2">地产2</div>
+                    <div id="p1house3">地产3</div>
+                    <div id="p1house4">地产4</div>
+                    <div id="p1house5">地产5</div>
+                    <div id="p1house6">地产6</div>
                 </div>
                 <h3>股票</h3>
                 <div class="stocks">
-                    <div>
+                    <div id="p1stocks1">
                         <div>
-                            <div>猫态A</div>
+                            <div stocksName="猫态A"></div>
                             <div stocksStatus="up" stocksPercent="+1.1%"></div>
-                            <div>当前报价：$99</div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
                         </div>
                         <div>
-                            <div>持股数：99 股</div>
-                            <button>买入</button>
-                            <button disabled>卖出</button>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
                         </div>
                     </div>
-                    <div>
+                    <div id="p1stocks2">
                         <div>
-                            <div>五狼耶A</div>
+                            <div stocksName="五狼耶A"></div>
                             <div stocksStatus="down" stocksPercent="-1.1%"></div>
-                            <div>当前报价：$99</div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
                         </div>
                         <div>
-                            <div>持股数：99 股</div>
-                            <button>买入</button>
-                            <button disabled>卖出</button>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
                         </div>
                     </div>
-                    <div>
+                    <div id="p1stocks3">
                         <div>
-                            <div>锡纸榔</div>
+                            <div stocksName="锡纸榔"></div>
                             <div stocksStatus="down" stocksPercent="-1.1%"></div>
-                            <div>当前报价：$99</div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
                         </div>
                         <div>
-                            <div>持股数：99 股</div>
-                            <button>买入</button>
-                            <button disabled>卖出</button>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
                         </div>
                     </div>
-                    <div>
+                    <div id="p1stocks4">
                         <div>
-                            <div>广帅博</div>
+                            <div stocksName="广帅博"></div>
                             <div stocksStatus="down" stocksPercent="-1.1%"></div>
-                            <div>当前报价：$99</div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
                         </div>
                         <div>
-                            <div>持股数：99 股</div>
-                            <button>买入</button>
-                            <button disabled>卖出</button>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
                         </div>
                     </div>
-                    <div>
+                    <div id="p1stocks5">
                         <div>
-                            <div>漆皮榔</div>
+                            <div stocksName="漆皮榔"></div>
                             <div stocksStatus="down" stocksPercent="-1.1%"></div>
-                            <div>当前报价：$99</div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
                         </div>
                         <div>
-                            <div>持股数：99 股</div>
-                            <button>买入</button>
-                            <button disabled>卖出</button>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
                         </div>
                     </div>
-                    <div>
+                    <div id="p1stocks6">
                         <div>
-                            <div>五狼耶B</div>
+                            <div stocksName="五狼耶B"></div>
                             <div stocksStatus="down" stocksPercent="-1.1%"></div>
-                            <div>当前报价：$99</div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
                         </div>
                         <div>
-                            <div>持股数：99 股</div>
-                            <button>买入</button>
-                            <button disabled>卖出</button>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
                         </div>
                     </div>
-                    <div>
+                    <div id="p1stocks7">
                         <div>
-                            <div>猫态B</div>
+                            <div stocksName="猫态B"></div>
                             <div stocksStatus="up" stocksPercent="+10.1%"></div>
-                            <div>当前报价：$99</div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
                         </div>
                         <div>
-                            <div>持股数：99 股</div>
-                            <button>买入</button>
-                            <button disabled>卖出</button>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
                         </div>
                     </div>
-                    <div>
+                    <div id="p1stocks8">
                         <div>
-                            <div>五狼耶C</div>
+                            <div stocksName="五狼耶C"></div>
                             <div stocksStatus="down" stocksPercent="-1.1%"></div>
-                            <div>当前报价：$99</div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
                         </div>
                         <div>
-                            <div>持股数：99 股</div>
-                            <button>买入</button>
-                            <button disabled>卖出</button>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
                         </div>
                     </div>
-                    <div>
+                    <div id="p1stocks9">
                         <div>
-                            <div>猫态C</div>
+                            <div stocksName="猫态C"></div>
                             <div stocksStatus="up" stocksPercent="+21.1%"></div>
-                            <div>当前报价：$99</div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
                         </div>
                         <div>
-                            <div>持股数：99 股</div>
-                            <button>买入</button>
-                            <button disabled>卖出</button>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
                         </div>
                     </div>
-                    <div>
+                    <div id="p1stocks10">
                         <div>
-                            <div>五狼耶D</div>
+                            <div stocksName="五狼耶D"></div>
                             <div stocksStatus="down" stocksPercent="-1.1%"></div>
-                            <div>当前报价：$99</div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
                         </div>
                         <div>
-                            <div>持股数：99 股</div>
-                            <button>买入</button>
-                            <button disabled>卖出</button>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
+    <!----->
+    <!----->
+    <div class="pop" id="p2pop" style="display: none;">
+        <div class="popMain">
+            <div class="popHeader">工作台-李四
+                <button class="closeBtn" id="p2popCloseBtn">关闭</button>
+            </div>
+            <div class="popBody">
+                <h3>道具卡</h3>
+                <div class="card">
+                    <div id="p2card1">卡片1</div>
+                    <div id="p2card2">卡片2</div>
+                    <div id="p2card3">卡片3</div>
+                    <div id="p2card4">卡片4</div>
+                    <div id="p2card5">卡片5</div>
+                    <div id="p2card5">卡片6</div>
+                </div>
+                <h3>地产</h3>
+                <div class="house">
+                    <div id="p2house1">地产1</div>
+                    <div id="p2house2">地产2</div>
+                    <div id="p2house3">地产3</div>
+                    <div id="p2house4">地产4</div>
+                    <div id="p2house5">地产5</div>
+                    <div id="p2house6">地产6</div>
+                </div>
+                <h3>股票</h3>
+                <div class="stocks">
+                    <div id="p2stocks1">
+                        <div>
+                            <div stocksName="猫态A"></div>
+                            <div stocksStatus="up" stocksPercent="+1.1%"></div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
+                        </div>
+                    </div>
+                    <div id="p2stocks2">
+                        <div>
+                            <div stocksName="五狼耶A"></div>
+                            <div stocksStatus="down" stocksPercent="-1.1%"></div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
+                        </div>
+                    </div>
+                    <div id="p2stocks3">
+                        <div>
+                            <div stocksName="锡纸榔"></div>
+                            <div stocksStatus="down" stocksPercent="-1.1%"></div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
+                        </div>
+                    </div>
+                    <div id="p2stocks4">
+                        <div>
+                            <div stocksName="广帅博"></div>
+                            <div stocksStatus="down" stocksPercent="-1.1%"></div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
+                        </div>
+                    </div>
+                    <div id="p2stocks5">
+                        <div>
+                            <div stocksName="漆皮榔"></div>
+                            <div stocksStatus="down" stocksPercent="-1.1%"></div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
+                        </div>
+                    </div>
+                    <div id="p2stocks6">
+                        <div>
+                            <div stocksName="五狼耶B"></div>
+                            <div stocksStatus="down" stocksPercent="-1.1%"></div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
+                        </div>
+                    </div>
+                    <div id="p2stocks7">
+                        <div>
+                            <div stocksName="猫态B"></div>
+                            <div stocksStatus="up" stocksPercent="+10.1%"></div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
+                        </div>
+                    </div>
+                    <div id="p2stocks8">
+                        <div>
+                            <div stocksName="五狼耶C"></div>
+                            <div stocksStatus="down" stocksPercent="-1.1%"></div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
+                        </div>
+                    </div>
+                    <div id="p2stocks9">
+                        <div>
+                            <div stocksName="猫态C"></div>
+                            <div stocksStatus="up" stocksPercent="+21.1%"></div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
+                        </div>
+                    </div>
+                    <div id="p2stocks10">
+                        <div>
+                            <div stocksName="五狼耶D"></div>
+                            <div stocksStatus="down" stocksPercent="-1.1%"></div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!----->
+    <!----->
+    <div class="pop" id="p3pop" style="display: none;">
+        <div class="popMain">
+            <div class="popHeader">工作台-王五
+                <button class="closeBtn" id="p3popCloseBtn">关闭</button>
+            </div>
+            <div class="popBody">
+                <h3>道具卡</h3>
+                <div class="card">
+                    <div id="p3card1">卡片1</div>
+                    <div id="p3card2">卡片2</div>
+                    <div id="p3card3">卡片3</div>
+                    <div id="p3card4">卡片4</div>
+                    <div id="p3card5">卡片5</div>
+                    <div id="p3card5">卡片6</div>
+                </div>
+                <h3>地产</h3>
+                <div class="house">
+                    <div id="p3house1">地产1</div>
+                    <div id="p3house2">地产2</div>
+                    <div id="p3house3">地产3</div>
+                    <div id="p3house4">地产4</div>
+                    <div id="p3house5">地产5</div>
+                    <div id="p3house6">地产6</div>
+                </div>
+                <h3>股票</h3>
+                <div class="stocks">
+                    <div id="p3stocks1">
+                        <div>
+                            <div stocksName="猫态A"></div>
+                            <div stocksStatus="up" stocksPercent="+1.1%"></div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
+                        </div>
+                    </div>
+                    <div id="p3stocks2">
+                        <div>
+                            <div stocksName="五狼耶A"></div>
+                            <div stocksStatus="down" stocksPercent="-1.1%"></div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
+                        </div>
+                    </div>
+                    <div id="p3stocks3">
+                        <div>
+                            <div stocksName="锡纸榔"></div>
+                            <div stocksStatus="down" stocksPercent="-1.1%"></div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
+                        </div>
+                    </div>
+                    <div id="p3stocks4">
+                        <div>
+                            <div stocksName="广帅博"></div>
+                            <div stocksStatus="down" stocksPercent="-1.1%"></div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
+                        </div>
+                    </div>
+                    <div id="p3stocks5">
+                        <div>
+                            <div stocksName="漆皮榔"></div>
+                            <div stocksStatus="down" stocksPercent="-1.1%"></div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
+                        </div>
+                    </div>
+                    <div id="p3stocks6">
+                        <div>
+                            <div stocksName="五狼耶B"></div>
+                            <div stocksStatus="down" stocksPercent="-1.1%"></div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
+                        </div>
+                    </div>
+                    <div id="p3stocks7">
+                        <div>
+                            <div stocksName="猫态B"></div>
+                            <div stocksStatus="up" stocksPercent="+10.1%"></div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
+                        </div>
+                    </div>
+                    <div id="p3stocks8">
+                        <div>
+                            <div stocksName="五狼耶C"></div>
+                            <div stocksStatus="down" stocksPercent="-1.1%"></div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
+                        </div>
+                    </div>
+                    <div id="p3stocks9">
+                        <div>
+                            <div stocksName="猫态C"></div>
+                            <div stocksStatus="up" stocksPercent="+21.1%"></div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
+                        </div>
+                    </div>
+                    <div id="p3stocks10">
+                        <div>
+                            <div stocksName="五狼耶D"></div>
+                            <div stocksStatus="down" stocksPercent="-1.1%"></div>
+                            <div>当前报价：$<div stocksValue="99"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>持股数：<div stockHeld="99"></div> 股</div>
+                            <button class="buyStocks">买入</button>
+                            <button class="sellStocks" disabled>卖出</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!----->
 </body>
 
 </html>
