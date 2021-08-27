@@ -3,9 +3,9 @@ function triggerEvent(pNow, num) {
     let str = "";
     let { name, bankDeposit } = pNow;
 
-    console.log("event",num);
+    console.log("event", num);
     switch (num) {
-        case 6:
+        /* case 1:
             (() => {
                 let forwNum = Math.round(Math.random() * 6);
                 let goNum = num + forwNum - 1;
@@ -14,35 +14,35 @@ function triggerEvent(pNow, num) {
                 go(pNow, goNum);
                 str = `跃迁，前进 ${forwNum} 格`;
             })();
-            break;
-        case 10: str = "到此一游";
+            break; */
+        case 0: str = "到此一游";
             break;
 
-        case 14:
+        case 1:
             (() => {
                 let cost = Math.round(Math.random() * 10000);
                 let res = consume(pNow, cost);
                 str = `参加公益活动，消费 ${cost} 元`;
-                if(res) str += "，破产" 
+                if (res) str += "，破产"
             })();
             break;
-        case 21:
-            (() => {
-                let backNum = Math.round(Math.random() * 6);
-                let goNum = num - backNum - 1;
-                if (goNum < 0) goNum += arr.length;
-
-                go(pNow, goNum);
-                str = `回溯，后退 ${backNum} 格`;
-            })();
-            break;
-        case 23:
-            (() => {
-                go(pNow, 0);
-                str = `重开，返回起点`;
-            })();
-            break;
-        case 19:
+        /*  case 4:
+             (() => {
+                 let backNum = Math.round(Math.random() * 6);
+                 let goNum = num - backNum - 1;
+                 if (goNum < 0) goNum += arr.length;
+ 
+                 go(pNow, goNum);
+                 str = `回溯，后退 ${backNum} 格`;
+             })();
+             break;
+         case 4:
+             (() => {
+                 go(pNow, 0);
+                 str = `重开，返回起点`;
+             })();
+             break; */
+        case 2:
             (() => {
                 let pauseRound = Math.round(Math.random() * 6);
                 pNow.pauseRound = pauseRound;
@@ -50,7 +50,7 @@ function triggerEvent(pNow, num) {
             })();
             break;
 
-        case 28:
+        case 3:
             (() => {
                 let cash = Math.round(Math.random() * 10000);
                 bankDeposit.value = +bankDeposit.value + cash;
@@ -58,7 +58,7 @@ function triggerEvent(pNow, num) {
             })();
             break;
 
-        case 32:
+        case 4:
             (() => {
                 let cost = Math.round(Math.random() * 10000);
                 bankDeposit.value = +bankDeposit.value - cost;
@@ -74,7 +74,7 @@ function triggerEvent(pNow, num) {
 
             })();
             break;
-        default: str = `前进至 ${num} 格`;
+        default: str = `前进至坐标： (x: ${moveX}, y:${moveY})`;
             break;
     }
 
@@ -90,7 +90,7 @@ function triggerEvent(pNow, num) {
     }
 
     billboard.innerHTML = `<div>${time++}：${name} ${str}</div>${dl}` + billboard.innerHTML;
-    
+
 
     if (bankruptcy === 2) {
         let winner;

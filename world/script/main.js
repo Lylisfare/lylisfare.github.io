@@ -61,6 +61,30 @@ moveBtn.addEventListener("click", function () {
 });
 
 nextRoundBtn.addEventListener("click", function () {
+    if (!gameover) {
+        pNow.operateBtn.setAttribute("disabled", "disabled");
+        rollPoint = 0;
+
+        //设置下一位
+        pNow = run(pNow.next);
+
+        function run(p) {
+            if (p.pauseRound > 0) {
+                p.pauseRound -= 1;
+                return run(p.next);
+            } else {
+                return p;
+            }
+        }
+
+        pNow.operateBtn.removeAttribute("disabled");
+
+        pNow = pNow.next;
+        roundPlayer.value = pNow.name;
+        rollScreen.value = 0;
+        nextRoundBtn.setAttribute("disabled", "disabled");
+        rollBtn.removeAttribute("disabled");
+    }
     /* if (!gameover) {
         gameLoop();
 
@@ -68,10 +92,5 @@ nextRoundBtn.addEventListener("click", function () {
         gameReset();
         setTimeout(loop, 1000);
     } */
-    pNow = pNow.next;
-    roundPlayer.value = pNow.name;
-    rollScreen.value = 0;
-    nextRoundBtn.setAttribute("disabled", "disabled");
-    rollBtn.removeAttribute("disabled");
 
 });

@@ -100,13 +100,14 @@ function GameMap() {
     let map = [];
 
     this.init = function (x, y) {
-        let k = 0;
+        /* let k = 0; */
         for (let i = 0; i < x; i++) {
             map[i] = [];
 
             for (let j = 0; j < y; j++) {
+                let evalue =  Math.round(Math.random() * 5);
                 let rtt = Math.round(Math.random() * 3);
-                let box = new Box(i, j, k++, terrainType[rtt], "event", "公益");
+                let box = new Box(i, j, evalue, terrainType[rtt], "event", "公益");
                 map[i][j] = box;
                 container.appendChild(box.el);
             }

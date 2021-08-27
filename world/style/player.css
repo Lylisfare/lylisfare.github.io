@@ -7,13 +7,14 @@
 .player::before {
     content: attr(name);
     display: flex;
-    font-size: 14px;
+    font-size: 16px;
     position: absolute;
     transform: translateY(-14px);
     width: 100%;
     justify-content: center;
-    text-shadow: 0px 0px 3px #000;
-    color: greenyellow;
+    text-shadow: 1px 1px 1px #000;
+    color:  rgb(76, 245, 76);
+    background-color: rgba(red, green, rgba(122, 122, 243, 0.118), alpha);
     font-weight: bolder;
 }
 
