@@ -4,6 +4,8 @@ let rollBtn = document.getElementById("roll-btn");
 let rollScreen = document.getElementById("roll-scr");
 let billboard = document.getElementById("billboard");
 let nextRoundBtn = document.getElementById("next-round-btn");
+let moveBtn = document.getElementById("move-btn");
+let roundPlayer = document.getElementById("round-player");
 
 //玩者1
 let p1El = document.getElementById("player1");

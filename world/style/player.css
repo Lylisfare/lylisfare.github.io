@@ -1,5 +1,7 @@
 .player {
     position: relative;
+    width: 32px;
+    height: 48px;
 }
 
 .player::before {
@@ -15,9 +17,7 @@
     font-weight: bolder;
 }
 
-#player1 {
-    width: 32px;
-    height: 48px;
+[playerImage="player1"] {
     /* overflow: hidden; */
     position: absolute;
     top: 0px;
@@ -31,7 +31,7 @@
     z-index: 999;
 }
 
-#player2 {
+[playerImage="player2"] {
     width: 32px;
     height: 48px;
     /* overflow: hidden; */
@@ -47,7 +47,7 @@
     z-index: 998;
 }
 
-#player3 {
+[playerImage="player3"] {
     width: 32px;
     height: 48px;
     /* overflow: hidden; */

@@ -14,21 +14,25 @@
     <link rel="stylesheet" href="./style/pop.css">
     <script src="./script/el.js" defer></script>
     <script src="./script/util.js" defer></script>
+    <script src="./script/map.js" defer></script>
     <script src="./script/event.js" defer></script>
-    <script src="./script/loop.js" defer></script>
     <script src="./script/main.js" defer></script>
+    <!-- <script src="./script/loop.js" defer></script> -->
     <script src="./script/test.js" defer></script>
 </head>
 
 <body>
     <div class="roll-board">
         <button class="btn" id="next-round-btn" disabled>回合结束</button>
+        <button class="btn" id="move-btn" disabled>移动</button>
         <button class="btn" id="roll-btn">点击投掷</button>
         <span class="ex">当前投掷点数：</span>
         <input type="text" class="roll" value="0" id="roll-scr" readonly>
+        <span class="ex">正在行动：</span>
+        <input type="text" class="roll" id="round-player" readonly>
     </div>
-    <div class="table">
-        <div class="line1">
+    <div class="table" id="main-map">
+        <!-- <div class="line1">
             <div class="box now" value="1" area="event" event="event">
                 <div class="player" id="player1" name="张三"></div>
             </div>
@@ -153,7 +157,7 @@
             <div class="box" value="98" area="event"></div>
             <div class="box" value="99" area="event"></div>
             <div class="box" value="100" area="event"></div>
-        </div>
+        </div> -->
     </div>
     <div>
         <div class="messageTable">

@@ -38,6 +38,7 @@
     align-items: center;
     justify-content: center;
     background-image: linear-gradient(195deg, rgba(216, 110, 40, 0.8), rgba(82, 37, 7, 0.8)) !important;
+    z-index: 5;
 }
 
 [terrain="lake"]::after {
@@ -58,19 +59,77 @@
     background-image: linear-gradient(195deg, rgba(40, 146, 216, 0.8), rgba(8, 7, 82, 0.8)) !important;
 }
 
-[selected="true"] {
-    background: blue;
-    animation: infinite 1s shine;
+[terrain="land"]::after {
+    content: "平原";
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    transform: translateX(0px) translateY(0px) translateZ(10px);
+    color: rgb(238, 240, 255);
+    /* text-shadow: 0px 0px 10px rgb(106, 106, 6); */
+    font-size: 28px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, .7);
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(195deg, rgba(255, 230, 129, 0.8), rgba(240, 158, 81, 0.8)) !important;
+}
+
+[terrain="forest"]::after {
+    content: "深林";
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    transform: translateX(0px) translateY(0px) translateZ(10px);
+    color: rgb(238, 240, 255);
+    /* text-shadow: 0px 0px 10px rgb(106, 106, 6); */
+    font-size: 28px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, .7);
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(195deg, rgba(55, 165, 45, 0.8), rgba(4, 124, 18, 0.8)) !important;
+}
+
+[focus="true"] {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .7) !important;
+}
+
+[focus="true"][terrain="lake"]::after {
+    background: #fff !important;
+    color: rgba(80, 80, 245, 0.967);
+}
+
+[focus="true"][terrain="wall"]::after {
+    background: #fff !important;
+    color: rgba(216, 110, 40, 0.8);
+}
+
+[focus="true"][terrain="forest"]::after {
+    background: #fff !important;
+    color: rgba(55, 165, 45, 0.8);
+}
+
+[focus="true"][terrain="land"]::after {
+    background: #fff !important;
+    color: rgba(240, 158, 81, 0.8);
+}
+[selected="true"]::after{
+    filter:invert(100%) !important;
 }
 
 @keyframes shine {
     0% {
         background: blue;
     }
-    50%{
+    50% {
         background: green;
     }
-    100%{
+    100% {
         background: blue;
     }
 }

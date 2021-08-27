@@ -3,6 +3,7 @@ function triggerEvent(pNow, num) {
     let str = "";
     let { name, bankDeposit } = pNow;
 
+    console.log("event",num);
     switch (num) {
         case 6:
             (() => {
