@@ -1,6 +1,14 @@
 const canvas = document.getElementById("no-music-canvas");
 const ctx = canvas.getContext("2d");
 const pointPanel = document.getElementById("point");
+
+const tips = {
+    q: document.getElementById("q"),
+    w: document.getElementById("w"),
+    e: document.getElementById("e"),
+    r: document.getElementById("r")
+}
+
 let gameFlag = null;
 
 class Rect {
@@ -146,6 +154,7 @@ function game() {
         if (key_map.has(keyCode)) {
             let key = key_map.get(keyCode);
             key_status[key] = true;
+            tips[key].setAttribute("status", "down");
         }
     });
 
@@ -153,6 +162,7 @@ function game() {
         if (key_map.has(keyCode)) {
             let key = key_map.get(keyCode);
             key_status[key] = false;
+            tips[key].setAttribute("status", "up");
         }
     });
 
@@ -225,12 +235,12 @@ function game() {
 
     function checkEnd() {
         if (now >= end) {
-            let res = 0; 
+            let res = 0;
             for (let i = 0; i < cols.length; i++) {
                 let res2 = 0;
-                for(let j=0;j<cols[i].length;j++){
+                for (let j = 0; j < cols[i].length; j++) {
                     let r = cols[i][j];
-                    if(r.y > 640){
+                    if (r.y > 640) {
                         res2 += 1;
                     }
                 }
@@ -238,7 +248,7 @@ function game() {
                     res += 1;
                 }
             }
-            
+
             if (res === 4) {
                 gameEnd();
             }
