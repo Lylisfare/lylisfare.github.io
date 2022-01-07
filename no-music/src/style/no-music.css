@@ -1,0 +1,82 @@
+.no-music {
+    margin: 40px;
+    display: flex;
+    width: fit-content;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .6);
+}
+
+.no-music>.no-music-game-panel {
+    width: 320px;
+    height: 700px;
+    border-right: 1px solid rgb(58, 167, 250);
+}
+
+.no-music>.no-music-game-panel>canvas {
+    display: block;
+}
+
+.no-music-control {
+    display: flex;
+    height: 60px;
+    border: 1px solid #ccc;
+    padding-left: 23px;
+    padding-right: 23px;
+    border-bottom: 0px;
+}
+
+.no-music-control>div {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid #ccc;
+    border-bottom: 0px;
+    user-select: none;
+}
+
+.no-music-control>div:last-child{
+    border-right: 1px solid #ccc;
+}
+
+.no-music>.no-music-operate-panel {
+    width: 232px;
+    padding: 10px;
+    background: linear-gradient(#fff, #ccc);
+}
+
+.no-music-point {
+    width: 200px;
+    line-height: 20px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, .6) inset;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.no-music-btns {
+    padding: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+    gap: 20px;
+}
+
+.no-music-btns>button {
+    display: flex;
+    width: 60px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-music-help{
+    font-size: 12px;
+    padding: 10px;
+}
+
+.no-music-title{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-style: italic;
+}

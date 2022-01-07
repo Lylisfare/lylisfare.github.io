@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NO MUSIC</title>
+    <link rel="stylesheet" href="./src/style/reset.css">
+    <link rel="stylesheet" href="./src/style/no-music.css">
+    <script src="./src/script/no-music.js" defer></script>
+</head>
+
+<body>
+    <div class="no-music">
+        <div class="no-music-game-panel">
+            <canvas id="no-music-canvas" width="320" height="640"></canvas>
+            <div class="no-music-control">
+                <div>Q</div>
+                <div>W</div>
+                <div>E</div>
+                <div>R</div>
+            </div>
+        </div>
+        <div class="no-music-operate-panel">
+            <div class="no-music-title">NO MUSIC</div>
+            <div>计分板</div>
+            <div class="no-music-point" id="point">
+                0
+            </div>
+            <div class="no-music-help">
+
+                <div>帮助</div>
+                <div>
+                    点击“开始”按钮开始游戏，点击“结束”按钮停止游戏，
+                    游戏开始后，方块下落至黄线时根据方块所在位置，
+                    按下 Q | W | E | R 中的某一个按键，
+                    按下后方块变黑开始计分;
+                    当屏幕中所有方块均被移出屏幕时，游戏结束
+                </div>
+            </div>
+            <div class="no-music-btns">
+                <button onclick="start()">开始</button>
+                <button onclick="stop()">结束</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
