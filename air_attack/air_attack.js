@@ -4,7 +4,7 @@ const buffer = new OffscreenCanvas(300, 500);
 const bctx = buffer.getContext("2d");
 
 const area = new Rect(0, 0, 300, 500);
-const air = createEntity(1001, 150, 440, 20, 0, 0);
+const air = createEntity(1001, 150, 440, 16, 0, 0);
 let stoped = true;
 
 let map = []
@@ -16,10 +16,10 @@ let flag;
 const MAX_ENEMY_COUNT = 10;
 
 function createEnemy(i) {
-    let [x, y] = randomVec2(10, 10, 290, 290);
+    let [x, y] = randomVec2(20, 20, 280, 280);
     let enemySize = randomNum(10, 20);
     let id = `${randomNum()}`;
-    let spd = randomNum(1, 5);
+    let spd = randomNum(1, 3);
     let enemy = createEntity(id, x, y - 100, enemySize, 0, spd);
     map.push(enemy);
 }
