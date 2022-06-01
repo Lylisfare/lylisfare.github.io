@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./utils.js" defer></script>
+    <script src="./control.js" defer></script>
+    <script src="./air_attack.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header>
+        <div>天空泡泡大战</div>
+        <div class="operate">
+            <button onclick="window.close()">X</button>
+        </div>
+    </header>
+    <div class="air-bubble">
+        <div class="air-bubble-main">
+            <div class="air-bubble-screen">
+                <canvas id="canvas" width="300" height="500"></canvas>
+                <div class="air-bubble-alert" hide="true" id="bubble-alert">
+                    <div class="air-bubble-alert-main">
+                        <div>游戏结束，得分</div>
+                        <div>
+                            <input id="end-point" class="points" type="text" readonly value="999999999999">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="air-bubble-GUI">
+                <!-- <div class="air-bubble-title">
+                    <h2>天空泡泡大战</h2>
+                </div> -->
+                <div class="air-bubble-scoreboard"><input type="text" id="scoreboard" readonly value="0"></div>
+                <div class="air-bubble-note">
+                    <div>
+                        <h3>移动：</h3>
+                        <ul>
+                            <li>A: 向左移动</li>
+                            <li>D: 向右移动</li>
+                            <li>W: 向上移动</li>
+                            <li>S: 向下移动</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>攻击：</h3>
+                        <ul>
+                            <li>J: 射击/连续射击</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="air-bubble-operate">
+                    <button onclick="start()">开始(Enter)</button>
+                    <button onclick="stop()">停止</button>
+                    <button onclick="stop();start()">重置(Enter)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

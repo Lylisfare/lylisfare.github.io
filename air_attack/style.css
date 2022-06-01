@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul, li {
+    list-style: none;
+}
+
+
+
+
+body {
+    background-color: transparent;
+    background-color: #333;
+}
+
+canvas {
+    border: 1px solid #00ff00;
+    display: block;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+}
+
+.air-bubble {
+    width: fit-content;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(calc(-50% + 10px));
+}
+
+.air-bubble-main {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    background-color: black;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0px 10px 20px #0006;
+    border: 2px solid #666;
+
+}
+
+.air-bubble-GUI {
+    background-color: #fff1;
+    padding: 10px;
+    min-width: 200px;
+    max-width: 200px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+
+.air-bubble-title {
+    color: #00ff00;
+}
+
+.air-bubble-scoreboard {
+    display: flex;
+    padding: 10px 0px 10px 0px;
+}
+
+.air-bubble-scoreboard input {
+    display: block;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 20px;
+    color: #00ff00;
+    width: 100%;
+    border: 1px solid #3332;
+    background: linear-gradient(transparent 10%, #ccc6, #fff6);
+    text-align: right;
+    padding-right: 5px;
+    letter-spacing: 1px;
+
+}
+
+.air-bubble-note {
+    padding: 10px;
+    color: #00ff00;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.air-bubble-note h3 {
+    font-size: 14px;
+}
+
+.air-bubble-note ul {
+    padding-left: 10px;
+}
+
+.air-bubble-operate {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.air-bubble-operate button {
+    width: 100%;
+    height: fit-content;
+    padding: 5px 10px 5px 10px;
+    border: 1px solid #00ff00;
+    background-color: transparent;
+    color: #00ff00;
+}
+
+.air-bubble-operate button:active {
+    color: #fff9;
+    border: 1px solid #fff9;
+
+}
+
+header {
+    -webkit-app-region: drag;
+    border: 1px solid #00ff00;
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    color: #00ff00;
+    padding: 2px 5px 2px 5px;
+    border-radius: 4px;
+}
+
+header .operate button {
+    -webkit-app-region: none;
+    width: 100%;
+    height: fit-content;
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    color: #00ff00;
+    border-radius: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header .operate button:active {
+    color: #fff9;
+    border: 1px solid #fff9;
+}
+
+.air-bubble-alert {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    background-color: black;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.air-bubble-alert .air-bubble-alert-main {
+    position: relative;
+    border: 1px solid #00ff00;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    color: #00ff00;
+    gap: 10px;
+    font-size: 15px;
+}
+
+.air-bubble-screen{
+    position: relative;
+}
+.air-bubble-alert[hide="true"]{
+    display: none;
+}
+.points{
+    width: fit-content;
+    height: fit-content;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: #00ff00;
+}
