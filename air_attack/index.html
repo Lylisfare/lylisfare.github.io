@@ -13,10 +13,38 @@
 </head>
 
 <body>
-    <canvas id="canvas" width="300" height="500"></canvas>
-    <div>
-        <button onclick="start()">开始</button>
-        <button onclick="stop();start()">重置</button>
+    <div class="air-bubble">
+        <div class="air-bubble-main">
+            <div class="air-bubble-screen">
+                <canvas id="canvas" width="300" height="500"></canvas>
+            </div>
+            <div class="air-bubble-GUI">
+                <div class="air-bubble-title"><h2>天空泡泡大战</h2></div>
+                <div class="air-bubble-scoreboard"><input type="text" id="scoreboard" readonly value="0"></div>
+                <div class="air-bubble-note">
+                    <div>
+                        <h3>移动：</h3>
+                        <ul>
+                            <li>A: 向左移动</li>
+                            <li>D: 向右移动</li>
+                            <li>W: 向上移动</li>
+                            <li>S: 向下移动</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>攻击：</h3>
+                        <ul>
+                            <li>J: 射击</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="air-bubble-operate">
+                    <button onclick="start()">开始</button>
+                    <button onclick="stop()">停止</button>
+                    <button onclick="stop();start()">重置</button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 

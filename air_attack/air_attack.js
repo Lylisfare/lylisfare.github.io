@@ -2,9 +2,19 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const buffer = new OffscreenCanvas(300, 500);
 const bctx = buffer.getContext("2d");
+const scoreboard = document.getElementById("scoreboard");
+
+function addCount() {
+    console.log()
+    let value = +scoreboard.value;
+    scoreboard.value = value + 1;
+}
+function resetCount() {
+    scoreboard.value = 0;
+}
 
 const area = new Rect(0, 0, 300, 500);
-const air = createEntity(1001, 150, 440, 16, 0, 0);
+const air = createEntity(1001, 150, 440, 20, 0, 0);
 let stoped = true;
 
 let map = []
@@ -16,10 +26,10 @@ let flag;
 const MAX_ENEMY_COUNT = 10;
 
 function createEnemy(i) {
-    let [x, y] = randomVec2(20, 20, 280, 280);
+    let [x, y] = randomVec2(20, 20, 260, 260);
     let enemySize = randomNum(10, 20);
     let id = `${randomNum()}`;
-    let spd = randomNum(1, 3);
+    let spd = randomNum(1, 4);
     let enemy = createEntity(id, x, y - 100, enemySize, 0, spd);
     map.push(enemy);
 }
@@ -39,7 +49,9 @@ function checkMap() {
     for (let i = 0; i < map.length; i++) {
         let enemy = map[i];
         air.collision(enemy);
+        if (enemy.hurt) addCount();
         if (enemy.shape.collision(air.shape)) {
+            alert("GAME OVER");
             stop();
         }
         if (enemy.hurt) map.splice(i, 1);
@@ -76,6 +88,13 @@ const EVENTS = new Map([
     }]
 ]);
 
+document.addEventListener("keydown", function ({ keyCode }) {
+    if (keyCode === 13) {
+        stop(); 
+        start();
+    }
+})
+
 function start() {
     stoped = false;
 
@@ -90,18 +109,19 @@ function start() {
 }
 
 function stop() {
-    alert("GAME OVER");
     stoped = true;
     keyReset();
     cancelAnimationFrame(flag);
     //ctx.clearRect(0, 0, 300, 500);
     //bctx.clearRect(0, 0, 300, 500);
+    air.resetWeapon();
     air.pos.x = 150;
     air.pos.y = 440;
     map.length = 0;
     count = 0;
     old = new Date();
     interval = 300;
+    resetCount();
 }
 
 

@@ -81,8 +81,8 @@ class Rect {
 
         for (let i = 0, j = 3; i < 4; j = i++) {
             let p = rayCast(this, circ.pos, poly[i], poly[j]);
-            if(p){
-                if(circ.contains(p)) return true;
+            if (p) {
+                if (circ.contains(p)) return true;
             }
         }
 
@@ -117,6 +117,10 @@ function createEntity(id, x, y, radius, vx, vy) {
     let shape = new Circ(pos, radius);
     let weapon = [];
     let hurt = false;
+
+    function resetWeapon() {
+        weapon.length = 0;
+    }
 
     function updateWeapon(area) {
 
@@ -172,7 +176,7 @@ function createEntity(id, x, y, radius, vx, vy) {
         }
     }
 
-    return { entity, pos, shape, vec, update, render, shot, weapon, hurt, collision };
+    return { entity, pos, shape, vec, update, render, shot, weapon, hurt, collision, resetWeapon };
 }
 
 function randomVec2(x, y, w, h) {
