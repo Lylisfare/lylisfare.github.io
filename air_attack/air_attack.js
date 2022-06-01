@@ -14,7 +14,7 @@ function resetCount() {
 }
 
 const area = new Rect(0, 0, 300, 500);
-const air = createEntity(1001, 150, 440, 20, 0, 0);
+const air = createEntity(1001, 150, 440, 10, 0, 0);
 let stoped = true;
 
 let map = []
