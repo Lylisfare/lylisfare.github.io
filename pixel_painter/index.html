@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./script.js" defer></script>
+</head>
+<style>
+    body,
+    html {
+        width: 100%;
+        height: 100%;
+    }
+
+    body {
+        background-color: #f2f2f2;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        user-select: none;
+    }
+
+    #canvas {
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, .3);
+    }
+
+    .btn {
+        border-radius: 2px;
+        width: fit-content;
+        height: fit-content;
+        padding: 2px;
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, .3);
+        user-select: none;
+        background-image: linear-gradient(180deg, #fff, #ccc);
+        outline: none;
+        border: 0px;
+    }
+
+    .case {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        gap: 5px;
+    }
+
+    ol {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #main {
+        display: flex;
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, .3);
+        width: fit-content;
+        padding: 10px;
+        position: fixed;
+        top: 50vh;
+        left: 50vw;
+        transform: translateX(-50%) translateY(-50%);
+        background-color: #fff;
+    }
+
+    .container {
+        padding: 10px;
+        height: 426px;
+        width: 300px;
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, .3);
+    }
+
+    #tools>label>input {
+        display: none;
+    }
+
+    #tools>label>input:checked+div {
+        background-image: linear-gradient(0deg, #ccc, #ccc);
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, .3) inset;
+    }
+</style>
+
+<body>
+    <div id="main">
+        <div class="case" id="tools">
+            <label for="pen">
+                <input id="pen" type="radio" name="tools" value="pen" checked>
+                <div class="btn">🏑</div>
+            </label>
+            <label for="eraser">
+                <input id="eraser" type="radio" name="tools" value="eraser">
+                <div focus="false" class="btn">🎯</div>
+            </label>
+        </div>
+        <div>
+            <canvas id="canvas" width="512" height="512"></canvas>
+            <div class="case">
+                <div><span>笔刷颜色：</span><input id="color" type="color"></div>
+                <div style="display: none;"><span>画笔大小：</span><input id="size" type="number" value="4"></div>
+            </div>
+        </div>
+        <div class="case">
+            <div>图层列表 <input class="btn" id="new_layer" type="button" value="新建图层"></div>
+
+            <div class="container">
+                <ol id="layer_list"></ol>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
