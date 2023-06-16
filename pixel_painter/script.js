@@ -118,6 +118,10 @@ CANVAS.addEventListener("mousedown", function ({ offsetX, offsetY, button }) {
                 LAYERS[STATUS.layer_now].items.push(item);
 
                 if (STATUS.flip_draw) {
+                    const j = find({ x: (256 - item.x) + (256 - STATUS.pixelSize), y: +item.y });
+
+                    if (j || j === 0) LAYERS[STATUS.layer_now].items.splice(j, 1);
+
                     LAYERS[STATUS.layer_now].items.push({
                         x: (256 - item.x) + (256 - STATUS.pixelSize),
                         y: +item.y,
@@ -125,6 +129,7 @@ CANVAS.addEventListener("mousedown", function ({ offsetX, offsetY, button }) {
                         color: `${item.color}`,
                         flip_draw: true,
                     });
+
                 }
 
                 HISTORY.push({
