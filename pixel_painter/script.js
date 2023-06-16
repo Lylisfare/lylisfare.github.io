@@ -226,22 +226,41 @@ function loop() {
 }
 
 function createLayer() {
-    const pos = LAYERS.length
-    LAYERS[pos] = { show: true, items: [] };
-    FLIP_LAYERS[pos] = { show: true, items: [] };
+    const pos = LAYERS.length;
+    const LAYER = { show: true, items: [], pos: +pos, name: `图层 ${pos}` };
+    LAYERS[pos] = LAYER;
     const li = document.createElement("li");
     const btn = document.createElement("input");
-    li.setAttribute("id", `layer_${pos}`);
+    const nameNode = document.createTextNode(`图层 ${pos}`);
     btn.setAttribute("class", "layer_btn");
     btn.setAttribute("type", "radio");//<input value="0"></input>
     btn.setAttribute("name", "layer_now");
+
+    li.setAttribute("id", `layer_${pos}`);
     btn.setAttribute("value", pos);
 
     btn.addEventListener("change", function () {
         if (this.checked) {
-            STATUS.layer_now = pos;
+            STATUS.layer_now = LAYER.pos;
         }
     });
+
+    const rename = document.createElement("input");
+    rename.setAttribute("type", "button");
+    rename.setAttribute("class", "layer_btn");
+    rename.setAttribute("value", "🖊");
+    rename.setAttribute("title", "重命名");
+    rename.addEventListener("click", function () {
+        const name = prompt("输入名称", LAYER.name);
+        console.log(name.length);
+        if (name.length <= 8) {
+            nameNode.textContent = name;
+            LAYER.name = name;
+        }else{
+            alert("图层名称不能超过8个字符");
+        }
+    });
+
 
     const move_up = document.createElement("input");
     move_up.setAttribute("type", "button");
@@ -249,11 +268,43 @@ function createLayer() {
     move_up.setAttribute("value", "🔼");
     move_up.setAttribute("title", "上移");
 
+    move_up.addEventListener("click", function () {
+        const prev = LAYERS[LAYER.pos - 1];
+        if (prev) {
+            const posi = +LAYER.pos;
+            if (STATUS.layer_now === posi) {
+                STATUS.layer_now = posi - 1;
+            }
+            LAYERS[posi - 1] = LAYER;
+            LAYERS[posi] = prev;
+            prev.pos = +posi;
+            LAYER.pos = posi - 1;
+            const prevLi = LAYER_LIST.childNodes[LAYER.pos];
+            LAYER_LIST.insertBefore(li, prevLi);
+        }
+    });
+
+
     const move_down = document.createElement("input");
     move_down.setAttribute("type", "button");
     move_down.setAttribute("class", "layer_btn");
     move_down.setAttribute("value", "🔽");
     move_down.setAttribute("title", "下移");
+    move_down.addEventListener("click", function () {
+        const next = LAYERS[LAYER.pos + 1];
+        if (next) {
+            const posi = +LAYER.pos;
+            if (STATUS.layer_now === posi) {
+                STATUS.layer_now = posi + 1;
+            }
+            LAYERS[posi + 1] = LAYER;
+            LAYERS[posi] = next;
+            next.pos = +posi;
+            LAYER.pos = posi + 1;
+            const nextLi = LAYER_LIST.childNodes[LAYER.pos];
+            LAYER_LIST.insertBefore(nextLi, li);
+        }
+    });
 
     const hide = document.createElement("input");
     hide.setAttribute("type", "checkbox");
@@ -263,13 +314,15 @@ function createLayer() {
 
     const remove = document.createElement("input");
     remove.setAttribute("type", "button");
-    remove.setAttribute("class", "btn");
-    remove.setAttribute("value", "x");
+    remove.setAttribute("class", "layer_btn");
+    remove.setAttribute("value", "❌");
+    remove.setAttribute("title", "删除");
 
 
     li.appendChild(btn);
-    li.appendChild(document.createTextNode(`图层 ${pos}`));
+    li.appendChild(nameNode);
     li.appendChild(hide);
+    li.appendChild(rename);
     li.appendChild(move_up);
     li.appendChild(move_down);
     li.appendChild(remove);
