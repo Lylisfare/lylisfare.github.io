@@ -256,7 +256,7 @@ function createLayer() {
         if (name.length <= 8) {
             nameNode.textContent = name;
             LAYER.name = name;
-        }else{
+        } else {
             alert("图层名称不能超过8个字符");
         }
     });
@@ -317,7 +317,28 @@ function createLayer() {
     remove.setAttribute("class", "layer_btn");
     remove.setAttribute("value", "❌");
     remove.setAttribute("title", "删除");
+    remove.addEventListener("click", function () {
+        const check = confirm("是否确认删除图层，删除后无法恢复，请谨慎操作。");
+        if (check) {
+            const prev = LAYERS[LAYER.pos - 1];
+            const next = LAYERS[LAYER.pos + 1];
+            LAYERS.splice(LAYER.pos, 1);
+            LAYER_LIST.removeChild(li);
+            if (next) {
+                next.pos = LAYER.pos;
+            }
+            if (STATUS.layer_now === LAYER.pos) {
+                if (next) {
+                    next.checkBtn.click();
+                } else if (prev) {
+                    prev.checkBtn.click();
+                } else {
+                    STATUS.layer_now = 0;
+                }
+            }
+        }
 
+    });
 
     li.appendChild(btn);
     li.appendChild(nameNode);
@@ -328,6 +349,7 @@ function createLayer() {
     li.appendChild(remove);
     LAYER_LIST.appendChild(li);
     hide.click();
+    LAYER.checkBtn = btn;
 
     if (LAYERS.length === 1) {
         btn.click();
