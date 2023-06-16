@@ -105,79 +105,81 @@ NEW_LAYER.addEventListener("click", function () {
 });
 
 
-CANVAS.addEventListener("mousedown", function ({ offsetX, offsetY }) {
-    if (LAYERS.length > 0) {
-        const item = getPosition(offsetX, offsetY);
-        const i = find(item)
-        if (STATUS.tool === "pen") {
-            if (i || i === 0) LAYERS[STATUS.layer_now].items.splice(i, 1);
-            item.color = `${STATUS.color}`;
-            item.size = +STATUS.pixelSize;
-            LAYERS[STATUS.layer_now].items.push(item);
+CANVAS.addEventListener("mousedown", function ({ offsetX, offsetY, button }) {
+    if (button === 0) {
+        if (LAYERS.length > 0) {
+            const item = getPosition(offsetX, offsetY);
+            const i = find(item)
+            if (STATUS.tool === "pen") {
+                if (i || i === 0) LAYERS[STATUS.layer_now].items.splice(i, 1);
+                item.color = `${STATUS.color}`;
+                item.size = +STATUS.pixelSize;
+                LAYERS[STATUS.layer_now].items.push(item);
 
-            if (STATUS.flip_draw) {
-                LAYERS[STATUS.layer_now].items.push({
-                    x: (256 - item.x) + 256,
-                    y: +item.y,
-                    size: +item.size,
-                    color: `${item.color}`,
-                    flip_draw: true,
-                });
-            }
-
-            HISTORY.push({
-                operate: "draw",
-                layer: +STATUS.layer_now,
-                flip_draw: false,
-                item: {
-                    x: +item.x,
-                    y: +item.y,
-                    size: +item.size,
-                    color: `${item.color}`,
-                }
-            });
-            REDO_LIST.length = 0;
-        } else if (STATUS.tool === "eraser") {
-            if (i || i === 0) {
-                const ritem = LAYERS[STATUS.layer_now].items.splice(i, 1)[0];
-                
                 if (STATUS.flip_draw) {
-                    const j = find({ x: (256 - item.x) + 256, y: +item.y });
-                    if (j || j === 0) {
-                        const fitem = LAYERS[STATUS.layer_now].items.splice(j, 1)[0];
-
-                        HISTORY.push({
-                            operate: "clean",
-                            layer: +STATUS.layer_now,
-                            flip_draw: ((fitem.flip_draw) ? true : false),
-                            item: {
-                                x: +fitem.x,
-                                y: +fitem.y,
-                                size: +fitem.size,
-                                color: `${fitem.color}`,
-                            }
-                        });
-                    }
+                    LAYERS[STATUS.layer_now].items.push({
+                        x: (256 - item.x) + 256,
+                        y: +item.y,
+                        size: +item.size,
+                        color: `${item.color}`,
+                        flip_draw: true,
+                    });
                 }
 
                 HISTORY.push({
-                    operate: "clean",
+                    operate: "draw",
                     layer: +STATUS.layer_now,
-                    flip_draw: ((ritem.flip_draw) ? true : false),
+                    flip_draw: false,
                     item: {
-                        x: +ritem.x,
-                        y: +ritem.y,
-                        size: +ritem.size,
-                        color: `${ritem.color}`,
+                        x: +item.x,
+                        y: +item.y,
+                        size: +item.size,
+                        color: `${item.color}`,
                     }
                 });
+                REDO_LIST.length = 0;
+            } else if (STATUS.tool === "eraser") {
+                if (i || i === 0) {
+                    const ritem = LAYERS[STATUS.layer_now].items.splice(i, 1)[0];
 
-                
+                    if (STATUS.flip_draw) {
+                        const j = find({ x: (256 - item.x) + 256, y: +item.y });
+                        if (j || j === 0) {
+                            const fitem = LAYERS[STATUS.layer_now].items.splice(j, 1)[0];
+
+                            HISTORY.push({
+                                operate: "clean",
+                                layer: +STATUS.layer_now,
+                                flip_draw: ((fitem.flip_draw) ? true : false),
+                                item: {
+                                    x: +fitem.x,
+                                    y: +fitem.y,
+                                    size: +fitem.size,
+                                    color: `${fitem.color}`,
+                                }
+                            });
+                        }
+                    }
+
+                    HISTORY.push({
+                        operate: "clean",
+                        layer: +STATUS.layer_now,
+                        flip_draw: ((ritem.flip_draw) ? true : false),
+                        item: {
+                            x: +ritem.x,
+                            y: +ritem.y,
+                            size: +ritem.size,
+                            color: `${ritem.color}`,
+                        }
+                    });
+
+
+                }
+                REDO_LIST.length = 0;
             }
-            REDO_LIST.length = 0;
+        } else {
+            alert("没有可用图层");
         }
-    } else {
-        alert("没有可用图层");
     }
 });
 
