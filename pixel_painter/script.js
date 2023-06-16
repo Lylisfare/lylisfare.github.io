@@ -27,6 +27,7 @@ const STATUS = {
     tool: "pen",
     pixelSize: 4,
     flip_draw: false,
+    count: 0,
 };
 
 FLIP.addEventListener("click", function () {
@@ -227,11 +228,12 @@ function loop() {
 
 function createLayer() {
     const pos = LAYERS.length;
-    const LAYER = { show: true, items: [], pos: +pos, name: `图层 ${pos}` };
+    const c = STATUS.count++;
+    const LAYER = { show: true, items: [], pos: +pos, name: `图层 ${c}` };
     LAYERS[pos] = LAYER;
     const li = document.createElement("li");
     const btn = document.createElement("input");
-    const nameNode = document.createTextNode(`图层 ${pos}`);
+    const nameNode = document.createTextNode(`图层 ${c}`);
     btn.setAttribute("class", "layer_btn");
     btn.setAttribute("type", "radio");//<input value="0"></input>
     btn.setAttribute("name", "layer_now");
