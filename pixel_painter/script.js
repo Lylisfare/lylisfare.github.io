@@ -1,30 +1,86 @@
+//主画布
 const CANVAS = document.getElementById("canvas");
 const CTX = CANVAS.getContext("2d");
-const LAYERS = [];
-const SIZE = document.getElementById("size");
-//{ show: true, items: [] }
+//调色盘
+const PALETTE = document.getElementById("palette");
+//图层
+const LAYER_LIST = document.getElementById("layer_list");
+const NEW_LAYER = document.getElementById("new_layer");
+//颜色
+const COLOR = document.getElementById("color");
+//工具
+const PEN = document.getElementById("pen");
+const ERASER = document.getElementById("eraser");
+const UNDO = document.getElementById("undo");
+const REDO = document.getElementById("redo");
+const FLIP = document.getElementById("flip_canvas");
+
+
+const LAYERS = []; //[{ show: true, items: [] }]
+const HISTORY = [];
+const REDO_LIST = [];
+const FLIP_LAYERS = [];
+
 const STATUS = {
     layer_now: 0,
     color: "#000",
     tool: "pen",
     pixelSize: 4,
+    flip_draw: false,
 };
 
-const LAYER_LIST = document.getElementById("layer_list");
-const NEW_LAYER = document.getElementById("new_layer");
+FLIP.addEventListener("click", function () {
+    STATUS.flip_draw = this.checked;
+});
 
-const COLOR = document.getElementById("color");
+UNDO.addEventListener("click", function () {
+    if (HISTORY.length > 0) {
+        const active = HISTORY.pop();
 
-const PEN = document.getElementById("pen");
-const ERASER = document.getElementById("eraser")
+        if (active.operate === "draw") {
+            STATUS.layer_now = +active.layer;
+            LAYERS[STATUS.layer_now].items.pop();
+            REDO_LIST.push(active);
 
-SIZE.addEventListener("change", function () {
-    const value = +this.value;
-
-    if (!isNaN(value) && value !== 0) {
-        STATUS.pixelSize = value;
+        } else if (active.operate === "clean") {
+            STATUS.layer_now = +active.layer;
+            LAYERS[STATUS.layer_now].items.push({
+                x: +active.item.x,
+                y: +active.item.y,
+                size: +active.item.size,
+                color: `${active.item.color}`,
+            });
+            REDO_LIST.push(active);
+        }
     }
-})
+
+    //console.log(HISTORY, REDO_LIST);
+});
+
+REDO.addEventListener("click", function () {
+    if (REDO_LIST.length > 0) {
+        const active = REDO_LIST.pop();
+
+        if (active.operate === "draw") {
+            STATUS.layer_now = +active.layer;
+            LAYERS[STATUS.layer_now].items.push({
+                x: +active.item.x,
+                y: +active.item.y,
+                size: +active.item.size,
+                color: `${active.item.color}`,
+            });
+            HISTORY.push(active);
+
+
+        } else if (active.operate === "clean") {
+            STATUS.layer_now = +active.layer;
+            LAYERS[STATUS.layer_now].items.pop();
+            HISTORY.push(active);
+        }
+    }
+
+    //console.log(HISTORY, REDO_LIST);
+});
 
 
 PEN.addEventListener("click", function () {
@@ -58,8 +114,67 @@ CANVAS.addEventListener("mousedown", function ({ offsetX, offsetY }) {
             item.color = `${STATUS.color}`;
             item.size = +STATUS.pixelSize;
             LAYERS[STATUS.layer_now].items.push(item);
+
+            if (STATUS.flip_draw) {
+                LAYERS[STATUS.layer_now].items.push({
+                    x: (256 - item.x) + 256,
+                    y: +item.y,
+                    size: +item.size,
+                    color: `${item.color}`,
+                    flip_draw: true,
+                });
+            }
+
+            HISTORY.push({
+                operate: "draw",
+                layer: +STATUS.layer_now,
+                flip_draw: false,
+                item: {
+                    x: +item.x,
+                    y: +item.y,
+                    size: +item.size,
+                    color: `${item.color}`,
+                }
+            });
+            REDO_LIST.length = 0;
         } else if (STATUS.tool === "eraser") {
-            if (i || i === 0) LAYERS[STATUS.layer_now].items.splice(i, 1);
+            if (i || i === 0) {
+                const ritem = LAYERS[STATUS.layer_now].items.splice(i, 1)[0];
+                
+                if (STATUS.flip_draw) {
+                    const j = find({ x: (256 - item.x) + 256, y: +item.y });
+                    if (j || j === 0) {
+                        const fitem = LAYERS[STATUS.layer_now].items.splice(j, 1)[0];
+
+                        HISTORY.push({
+                            operate: "clean",
+                            layer: +STATUS.layer_now,
+                            flip_draw: ((fitem.flip_draw) ? true : false),
+                            item: {
+                                x: +fitem.x,
+                                y: +fitem.y,
+                                size: +fitem.size,
+                                color: `${fitem.color}`,
+                            }
+                        });
+                    }
+                }
+
+                HISTORY.push({
+                    operate: "clean",
+                    layer: +STATUS.layer_now,
+                    flip_draw: ((ritem.flip_draw) ? true : false),
+                    item: {
+                        x: +ritem.x,
+                        y: +ritem.y,
+                        size: +ritem.size,
+                        color: `${ritem.color}`,
+                    }
+                });
+
+                
+            }
+            REDO_LIST.length = 0;
         }
     } else {
         alert("没有可用图层");
@@ -77,11 +192,23 @@ function find({ x, y }) {
 }
 
 window.addEventListener("load", function () {
+    initPalette();
     loop();
 });
 
 function render() {
     CTX.clearRect(0, 0, 512, 512);
+    if (STATUS.flip_draw) {
+        CTX.fillStyle = "#00000011";
+        CTX.fillRect(256, 0, 256, 512);
+    }
+    for (const layer of FLIP_LAYERS) {
+        if (layer.show) {
+            for (const point of layer.items) {
+                draw(point);
+            }
+        }
+    }
     for (const layer of LAYERS) {
         if (layer.show) {
             for (const point of layer.items) {
@@ -99,6 +226,7 @@ function loop() {
 function createLayer() {
     const pos = LAYERS.length
     LAYERS[pos] = { show: true, items: [] };
+    FLIP_LAYERS[pos] = { show: true, items: [] };
     const li = document.createElement("li");
     const btn = document.createElement("input");
     li.setAttribute("id", `layer_${pos}`);
@@ -112,6 +240,18 @@ function createLayer() {
             STATUS.layer_now = pos;
         }
     });
+
+    const move_up = document.createElement("input");
+    move_up.setAttribute("type", "button");
+    move_up.setAttribute("class", "layer_btn");
+    move_up.setAttribute("value", "🔼");
+    move_up.setAttribute("title", "上移");
+
+    const move_down = document.createElement("input");
+    move_down.setAttribute("type", "button");
+    move_down.setAttribute("class", "layer_btn");
+    move_down.setAttribute("value", "🔽");
+    move_down.setAttribute("title", "下移");
 
     const hide = document.createElement("input");
     hide.setAttribute("type", "checkbox");
@@ -128,6 +268,8 @@ function createLayer() {
     li.appendChild(btn);
     li.appendChild(document.createTextNode(`图层 ${pos}`));
     li.appendChild(hide);
+    li.appendChild(move_up);
+    li.appendChild(move_down);
     li.appendChild(remove);
     LAYER_LIST.appendChild(li);
     hide.click();
@@ -150,4 +292,22 @@ function draw({ x = 0, y = 0, size = 4, color = "#f00" }) {
 
 function getPosition(x = 0, y = 0) {
     return { x: x - (x % STATUS.pixelSize), y: y - (y % STATUS.pixelSize) }
+}
+
+function initPalette() {
+    for (let i = 0; i < 72; i++) {
+        PALETTE.appendChild(createPaletteColor(i, PALETTE_COLORS[i]));
+    }
+}
+
+function createPaletteColor(i, color) {
+    const item = document.createElement("div");
+    item.setAttribute("id", `color_${i}`);
+    item.setAttribute("value", `${color}`);
+    item.setAttribute("style", `background-color: ${color};`);
+    item.addEventListener("click", function () {
+        COLOR.value = color;
+        STATUS.color = color;
+    });
+    return item;
 }

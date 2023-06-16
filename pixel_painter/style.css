@@ -1,0 +1,163 @@
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: #f2f2f2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+#canvas {
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, .3);
+}
+
+.btn {
+    border-radius: 2px;
+    width: fit-content;
+    height: fit-content;
+    padding: 2px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, .3);
+    user-select: none;
+    background-image: linear-gradient(180deg, #fff, #ccc);
+    outline: none;
+    border: 0px;
+}
+
+.case {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+}
+
+ol {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#main {
+    display: flex;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, .3);
+    width: fit-content;
+    padding: 10px;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: #fff;
+}
+
+.container {
+    padding: 10px;
+    height: 308px;
+    width: 300px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, .3);
+}
+#tools{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+#tools>label>input {
+    display: none;
+}
+
+#tools>label>input:checked+div {
+    background-image: linear-gradient(0deg, #ccc, #ccc);
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, .3) inset;
+}
+
+#undo:active{
+    background-color: #ccc;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, .3) inset;
+}
+
+#redo:active{
+    background-color: #ccc;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, .3) inset;
+}
+
+#export:active{
+    background-color: #ccc;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, .3) inset;
+}
+
+#import:active{
+    background-color: #ccc;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, .3) inset;
+}
+
+#tools div {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#palette {
+    display: grid;
+    grid-template-columns: repeat(12, 16px);
+    padding: 8px;
+    gap: 8px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, .3);
+}
+
+#palette>div {
+    width: 16px;
+    height: 16px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, .3);
+}
+
+#color {
+    width: 32px;
+    height: 32px;
+    border: 0px;
+    padding: auto;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, .3);
+}
+#color::-webkit-color-swatch-wrapper {
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+#color::-webkit-color-swatch{
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+canvas {
+    background: linear-gradient(90deg, rgba(180, 180, 180, 0.15) 6%, rgba(0, 0, 0, 0) 6%), linear-gradient(rgba(180, 180, 180, 0.15) 6%, rgba(0, 0, 0, 0) 6%);
+    background-size: 16px 16px;
+    background-position: -1px -1px;
+    width: 512px;
+    height: 512px;
+}
