@@ -15,7 +15,7 @@
 <body>
     <div id="main">
         <div class="case">
-            <div id="tools">
+            <div class="tools">
                 <label for="pen">
                     <input id="pen" type="radio" name="tools" value="pen" checked>
                     <div class="btn" title="画笔">🏑</div>
@@ -30,18 +30,21 @@
                 <label for="redo" style="display: none;">
                     <div id="redo" class="btn" title="重做">🧹</div>
                 </label>
-                <label for="import">
-                    <div id="import" class="btn" title="导入">🛴</div>
-                </label>
-                <label for="export">
-                    <div id="export" class="btn" title="导出">🚄</div>
-                </label>
                 <label for="flip_canvas">
                     <input id="flip_canvas" type="checkbox" id="flip_canvas">
                     <div class="btn" title="对称画布">⛩</div>
                 </label>
             </div>
             <div><input id="color" type="color"></div>
+
+            <div class="tools bottom">
+                <label for="import">
+                    <div id="import" class="btn" title="导入">🛴</div>
+                </label>
+                <label for="export">
+                    <div id="export" class="btn" title="导出">🚄</div>
+                </label>
+            </div>
         </div>
         <div>
             <canvas id="canvas" width="512" height="512"></canvas>
