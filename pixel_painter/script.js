@@ -36,7 +36,7 @@ IMPORT.addEventListener("click", function () {
         const { layers, version } = JSON.parse(decodeURI(atob(data)));
 
         for (const layer of layers) {
-            LAYERS.push(layer);
+            createLayer(layer);
         }
     });
 });
@@ -249,14 +249,14 @@ function loop() {
     render();
 }
 
-function createLayer() {
+function createLayer(layer) {
     const pos = LAYERS.length;
     const c = STATUS.count++;
-    const LAYER = { show: true, items: [], pos: +pos, name: `图层 ${c}` };
+    const LAYER = (layer) ? layer : { show: true, items: [], pos: +pos, name: `图层 ${c}` };
     LAYERS[pos] = LAYER;
     const li = document.createElement("li");
     const btn = document.createElement("input");
-    const nameNode = document.createTextNode(`图层 ${c}`);
+    const nameNode = document.createTextNode(LAYER.name);
     btn.setAttribute("class", "layer_btn");
     btn.setAttribute("type", "radio");//<input value="0"></input>
     btn.setAttribute("name", "layer_now");
