@@ -14,13 +14,14 @@ const ERASER = document.getElementById("eraser");
 const UNDO = document.getElementById("undo");
 const REDO = document.getElementById("redo");
 const FLIP = document.getElementById("flip_canvas");
-
+const IMPORT = document.getElementById("import");
+const EXPORT = document.getElementById("export");
 
 const LAYERS = []; //[{ show: true, items: [] }]
 const HISTORY = [];
 const REDO_LIST = [];
 const FLIP_LAYERS = [];
-
+const VERSION = .1;
 const STATUS = {
     layer_now: 0,
     color: "#000",
@@ -29,6 +30,23 @@ const STATUS = {
     flip_draw: false,
     count: 0,
 };
+
+IMPORT.addEventListener("click", function () {
+    importData(function (data) {
+        const { layers, version } = JSON.parse(decodeURI(atob(data)));
+
+        for (const layer of layers) {
+            LAYERS.push(layer);
+        }
+    });
+});
+
+EXPORT.addEventListener("click", function () {
+    const exportObject = btoa(encodeURI(JSON.stringify({ layers: LAYERS, version: VERSION })));
+    exportData(exportObject, "pp");
+});
+
+
 
 FLIP.addEventListener("click", function () {
     STATUS.flip_draw = this.checked;
