@@ -156,16 +156,16 @@ function createQueue(queueData) {
                 const copy = JSON.parse(JSON.stringify(QUEUE_STATUS));
                 const c = STATUS.count++;
                 copy.pos = +QUEUE_LIST.length;
-                copy.id = `q${c}-${+new Date()}`;
+                copy.id = `q${c}-${+new Date()}-${(Math.random() * 1000000).toFixed(0)}`;
 
                 for (let i = 0; i < copy.frames.length; i++) {
                     const frame = copy.frames[i];
-                    frame.id = `f${i}-${+new Date()}`;
+                    frame.id = `f${i}-${+new Date()}-${(Math.random() * 1000000).toFixed(0)}`;
 
                     for (let j = 0; j < frame.layers.length; j++) {
 
-                        const layer = frame.layers[i];
-                        layer.id = `l${i}-${+new Date()}`;
+                        const layer = frame.layers[j];
+                        layer.id = `l${j}-${+new Date()}-${(Math.random() * 1000000).toFixed(0)}`;
                     }
                 }
 
