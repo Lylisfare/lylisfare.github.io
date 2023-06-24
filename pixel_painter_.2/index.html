@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/style/style.css">
+    <script src="./src/script/html.js"></script>
+    <script src="./src/script/colors.js"></script>
+    <script src="./src/script/util.js"></script>
+    <script src="./src/script/target_element.js" defer></script>
+    <script src="./src/script/event_list.js" defer></script>
+    <script src="./src/script/gui.js" defer></script>
+    <script src="./src/script/script.js" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <span id="title-content">未命名</span>
+        <input type="button" class="list_btn" id="change-title" value="🖊" title="重命名">
+    </header>
+
+
+    <canvas id="canvas" class="draw_canvas" width="512" height="512"></canvas>
+
+
+    <div id="palette" class="bottom h-center"></div>
+
+    <div class="container right" id="frame_list_container">
+        <div class="operate" id="frame_list_title">
+            <div class="tools">
+                <label for="frame_list_picker">
+                    <input id="frame_list_picker" type="checkbox" style="display: none;">
+                    <div class="btn" title="显示/隐藏帧/图层列表">🎞</div>
+                </label>
+                <input class="btn" id="new_frame" type="button" value="➕" title="新建帧">
+                <input class="btn" id="play_queue" type="button" value="▶" title="播放帧"><!-- ⏸ -->
+            </div>
+        </div>
+    </div>
+
+    <div class="container left" id="queue_list_container">
+        <div class="operate">
+            <div class="tools">
+                <label for="queue_list_picker">
+                    <input id="queue_list_picker" type="checkbox" style="display: none;">
+                    <div class="btn" title="显示/隐藏序列列表">📼</div>
+                </label>
+                <label for="new_queue">
+                    <div id="new_queue" class="btn" title="新建序列">➕</div>
+                </label>
+            </div>
+            <div class="tools">
+                <label for="pen">
+                    <input id="pen" type="radio" name="tools" value="pen" checked>
+                    <div class="btn" title="画笔">🏑</div>
+                </label>
+                <label for="eraser">
+                    <input id="eraser" type="radio" name="tools" value="eraser">
+                    <div focus="false" class="btn" title="橡皮">🎯</div>
+                </label>
+                <hr>
+                <label for="undo" style="display: none;">
+                    <div id="undo" class="btn" title="撤销">🪒</div>
+                </label>
+                <label for="redo" style="display: none;">
+                    <div id="redo" class="btn" title="重做">🧹</div>
+                </label>
+                <hr style="display: none;">
+                <label for="keep_draw">
+                    <input id="keep_draw" type="checkbox" checked>
+                    <div class="btn" title="连续绘制">🎿</div>
+                </label>
+                <label for="light_mode">
+                    <input id="light_mode" type="checkbox">
+                    <div class="btn" title="背景颜色">🌞</div>
+                </label>
+                <hr>
+                <label for="flip_canvas">
+                    <input id="flip_canvas" type="checkbox">
+                    <div class="btn" title="对称绘制">⛩</div>
+                </label>
+                <label for="flip_horzon">
+                    <input id="flip_horzon" type="radio" name="flip_mode" checked>
+                    <div class="btn" title="水平对称">◐</div>
+                </label>
+                <label for="flip_vertical">
+                    <input id="flip_vertical" type="radio" name="flip_mode">
+                    <div class="btn" title="垂直对称">◓</div>
+                </label>
+                <label for="flip_center">
+                    <input id="flip_center" type="radio" name="flip_mode">
+                    <div class="btn" title="中心对称">◕</div>
+                </label>
+                <hr>
+                <input id="color" type="color" title="画笔颜色">
+            </div>
+
+            <div class="tools">
+                <label for="import">
+                    <div id="import" class="btn" title="导入">🛴</div>
+                </label>
+                <label for="export">
+                    <div id="export" class="btn" title="导出">🚄</div>
+                </label>
+                <label for="buildSprite">
+                    <div id="buildSprite" class="btn" title="生成精灵图">🚀</div>
+                </label>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
